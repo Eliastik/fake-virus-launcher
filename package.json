@@ -59,7 +59,8 @@
       "artifactName": "virus-launcher.exe"
     },
     "directories": {
-      "output": "electron/output"
+      "output": "electron/output",
+      "buildResources": "resources"
     },
     "files": [
       "**/*",
