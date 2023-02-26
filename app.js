@@ -42,23 +42,25 @@ app.on("activate", function () {
 });
 
 ipcMain.on('launch', (event, arg) => {
-    const path = process.env.PORTABLE_EXECUTABLE_DIR ? process.env.PORTABLE_EXECUTABLE_DIR : app.getAppPath();
-    const executablePath = path + "\\assets\\" + arg.program.exec + (arg.isFullscreen ? " /fullscreen" : "");
+    const path = (process.env.PORTABLE_EXECUTABLE_DIR ? process.env.PORTABLE_EXECUTABLE_DIR : app.getAppPath()) + "\\assets\\";
+    const executablePath = "start cmd.exe /C \"" + path + arg.program.exec + "\"" + (arg.isFullscreen ? " /fullscreen" : "");
     const child = require('child_process').exec;
 
-    child(executablePath, arg, function (err, data) {
-        if(err) {
+    child(executablePath, { cwd: path }, function (err, _stdout, stderr) {
+        if(err || stderr) {
             event.returnValue = {
                 code: "error",
-                data: err
-            };
-        } else {
-            event.returnValue = {
-                code: "success",
-                data: data
+                data: err ? err : stderr
             };
         }
     });
+
+    setTimeout(() => {
+        event.returnValue = {
+            code: "success",
+            data: null
+        };
+    }, 1000)
 });
 
 ipcMain.on('launch-website', () => {
