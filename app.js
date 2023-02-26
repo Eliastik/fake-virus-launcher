@@ -42,7 +42,8 @@ app.on("activate", function () {
 });
 
 ipcMain.on('launch', (event, arg) => {
-    const executablePath = app.getAppPath() + "\\assets\\" + arg.program.exec + (arg.isFullscreen ? " /fullscreen" : "");
+    const path = process.env.PORTABLE_EXECUTABLE_DIR ? process.env.PORTABLE_EXECUTABLE_DIR : app.getAppPath();
+    const executablePath = path + "\\assets\\" + arg.program.exec + (arg.isFullscreen ? " /fullscreen" : "");
     const child = require('child_process').exec;
 
     child(executablePath, arg, function (err, data) {
