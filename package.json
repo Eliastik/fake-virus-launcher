@@ -11,6 +11,7 @@
     "localize": "ng extract-i18n --format=json",
     "postinstall": "patch-package",
     "package": "ng build --base-href ./ && electron-builder --win portable",
+    "package:32": "ng build --base-href ./ && electron-builder --win portable --ia32",
     "package-linux": "ng build --base-href ./ && electron-builder --linux appImage"
   },
   "private": true,
