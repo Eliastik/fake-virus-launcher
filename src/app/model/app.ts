@@ -4,6 +4,7 @@ interface AppData {
     version: string;
     date: Date;
     programs: Program[];
+    updateURL: string;
 }
 
 const appData: AppData = {
@@ -22,7 +23,8 @@ const appData: AppData = {
         { name: "mega-flash-color", exec: "mega-flash-color.bat", icon: "bolt", hasFullscreen: true, hasWarning: false, isEasterEgg: false },
         { name: "infinite-matrix", exec: "infinite-matrix.bat", icon: "terminal", hasFullscreen: false, hasWarning: false, isEasterEgg: false },
         { name: "egg", exec: "w.bat", icon: "egg", hasFullscreen: false, hasWarning: false, isEasterEgg: true }
-    ]
+    ],
+    "updateURL": "https://www.eliastiksofts.com/faux-virus/updater.txt"
 };
 
 export default appData;

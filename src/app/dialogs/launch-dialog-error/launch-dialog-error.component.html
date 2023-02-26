@@ -1,0 +1,9 @@
+<h1 mat-dialog-title>{{ 'launchDialogError.title' | translate }}</h1>
+<div mat-dialog-content>
+    <div><span>{{ 'launchDialogError.description' | translate }}</span></div>
+    <div style="margin-top: 8px;"><strong>{{ 'launchDialogError.details' | translate }}</strong></div>
+    <div style="margin-top: 8px;">{{details}}</div>
+</div>
+<mat-dialog-actions align="end">
+    <button mat-button cdkFocusInitial (click)="closeDialog()">{{ 'launchDialogError.close' | translate }}</button>
+</mat-dialog-actions>

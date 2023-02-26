@@ -1,7 +1,9 @@
 {
     "menu": {
         "settings": "Settings",
-        "exit": "Exit application"
+        "exit": "Exit application",
+        "update": "Check update",
+        "about": "About"
     },
     "settingsDialog": {
         "title": "Settings",
@@ -11,5 +13,62 @@
     "lang": {
         "fr": "Français",
         "en": "English"
+    },
+    "programs": {
+        "anticlic": "Anti-click windows",
+        "anticlic_descr": "A virus that displays windows that close immediately, preventing the proper use of the computer",
+        "infinite": "Infinite windows",
+        "infinite_descr": "A virus that displays windows indefinitely, until the computer crashes",
+        "matrix": "Matrix",
+        "matrix_descr": "A virus that displays a stream of random numbers indefinitely, it can be closed without problems",
+        "reboot": "Restart",
+        "reboot_descr": "A virus that restarts the computer after a certain time, displayed on a scrolling counter",
+        "shutdown": "Shutdown",
+        "shutdown_descr": "A virus that shutdown the computer after a certain time, displayed on a scrolling counter",
+        "beep": "Infinite Beep",
+        "beep_descr": "A virus that beeps the computer indefinitely - only works on Windows versions prior to Vista",
+        "mega-flash": "Mega Flash",
+        "mega-flash_descr": "A virus that flashes the screen indefinitely",
+        "bsod": "BSOD",
+        "bsod_descr": "A virus that displays a fake blue screen of death of Windows",
+        "msg": "Virus Alert",
+        "msg_descr": "A virus that displays a fake virus alert that cannot be closed",
+        "mega-flash-color": "Mega Flash Color",
+        "mega-flash-color_descr": "A virus that flashes the screen indefinitely with colors",
+        "infinite-matrix": "Infinite windows + Matrix",
+        "infinite-matrix_descr": "A mix between the Infinite windows and Matrix viruses",
+        "egg": "???",
+        "egg_descr": "Who knows what you might find?"
+    },
+    "launchDialog": {
+        "yes": "Yes",
+        "no": "No",
+        "title": "Launch this virus?",
+        "description": "Are you sure that you want to launch this virus?",
+        "fullscreen": "Launch in full-screen mode",
+        "warning": "Be careful to save all your work, close the running programs because this virus will restart or shutdown your computer and may cause you to lose your unsaved data. You can cancel the shutdown of your computer if you run the virus by closing the window before the progress of the bar is finished."
+    },
+    "main": {
+        "description": "These fake viruses are harmless and do not damage the computer, but they can allow you to play a joke on your friends or colleagues!"
+    },
+    "launchDialogError": {
+        "title": "Error when launching the virus",
+        "description": "An error occurred while launching the virus. Perhaps the necessary files were not found.",
+        "details": "Error detail:",
+        "close": "Close"
+    },
+    "aboutDialog": {
+        "title": "About the application",
+        "description": "An application by Eliastik's Softs. Website:",
+        "version": "Application version:",
+        "versionDate": "Version date:",
+        "close": "Close"
+    },
+    "updateDialog": {
+        "title": "Update checker",
+        "hasUpdate": "An update is available!",
+        "hasNoUpdate": "No update is available",
+        "close": "Close",
+        "download": "Download update"
     }
 }

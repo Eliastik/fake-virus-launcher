@@ -7,15 +7,22 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatSelectModule } from '@angular/material/select';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { TranslateModule } from '@ngx-translate/core';
 import { LaunchDialogComponent } from './launch-dialog/launch-dialog.component';
+import { LaunchDialogErrorComponent } from './launch-dialog-error/launch-dialog-error.component';
+import { AboutDialogComponent } from './about-dialog/about-dialog.component';
+import { UpdateDialogComponent } from './update-dialog/update-dialog.component';
 
 
 
 @NgModule({
   declarations: [
     SettingsDialogComponent,
-    LaunchDialogComponent
+    LaunchDialogComponent,
+    LaunchDialogErrorComponent,
+    AboutDialogComponent,
+    UpdateDialogComponent
   ],
   imports: [
     CommonModule,
@@ -25,7 +32,8 @@ import { LaunchDialogComponent } from './launch-dialog/launch-dialog.component';
     MatDialogModule,
     MatSelectModule,
     TranslateModule,
-    MatSlideToggleModule
+    MatSlideToggleModule,
+    MatProgressSpinnerModule
   ]
 })
 export class DialogsModule { }

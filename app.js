@@ -1,4 +1,4 @@
-const { app, BrowserWindow, ipcMain } = require("electron")
+const { app, BrowserWindow, ipcMain, shell } = require("electron")
 const url = require("url");
 const path = require("path");
 
@@ -42,12 +42,28 @@ app.on("activate", function () {
 });
 
 ipcMain.on('launch', (event, arg) => {
-    console.log(arg, event);
-    const executablePath = ".\\assets\\" + arg.program.exec;
-    const child = require('child_process').execFile;
-    console.log(executablePath, child);
+    const executablePath = app.getAppPath() + "\\assets\\" + arg.program.exec + (arg.isFullscreen ? " /fullscreen" : "");
+    const child = require('child_process').exec;
+
     child(executablePath, arg, function (err, data) {
-        console.log(data.toString());
-        event.returnValue = data;
+        if(err) {
+            event.returnValue = {
+                code: "error",
+                data: err
+            };
+        } else {
+            event.returnValue = {
+                code: "success",
+                data: data
+            };
+        }
     });
+});
+
+ipcMain.on('launch-website', () => {
+    shell.openExternal("https://www.eliastiksofts.com");
+});
+
+ipcMain.on('launch-update', () => {
+    shell.openExternal("https://www.eliastiksofts.com/faux-virus/downloads");
 });

@@ -1,7 +1,8 @@
 import { Component, Inject } from '@angular/core';
-import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import Program from 'src/app/model/program';
 import { ElectronService } from 'ngx-electron';
+import { LaunchDialogErrorComponent } from '../launch-dialog-error/launch-dialog-error.component';
 
 @Component({
   selector: 'app-launch-dialog',
@@ -15,7 +16,8 @@ export class LaunchDialogComponent {
   constructor(
     public dialogRef: MatDialogRef<LaunchDialogComponent>,
     @Inject(MAT_DIALOG_DATA) public data: {program: Program},
-    private electronService: ElectronService) {
+    private electronService: ElectronService,
+    public dialog: MatDialog) {
     this.program = data.program;
   }
 
@@ -24,9 +26,17 @@ export class LaunchDialogComponent {
   }
 
   launch() {
-    this.electronService.ipcRenderer.sendSync('launch', {
+    const result = this.electronService.ipcRenderer.sendSync('launch', {
       program: this.program,
       isFullscreen: this.isFullscreen
     });
+
+    if(result.code == "error") {
+      this.dialog.open(LaunchDialogErrorComponent, {
+        data: { details: result.data },
+      });
+    }
+
+    this.closeDialog();
   }
 }

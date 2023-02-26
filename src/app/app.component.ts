@@ -2,6 +2,10 @@ import { Component } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { SettingsDialogComponent } from './dialogs/settings-dialog/settings-dialog.component';
 import { TranslateService } from '@ngx-translate/core';
+import { AboutDialogComponent } from './dialogs/about-dialog/about-dialog.component';
+import { UpdateDialogComponent } from './dialogs/update-dialog/update-dialog.component';
+import AppData from "src/app/model/app";
+import { LaunchDialogComponent } from './dialogs/launch-dialog/launch-dialog.component';
 
 @Component({
   selector: 'app-root',
@@ -10,6 +14,7 @@ import { TranslateService } from '@ngx-translate/core';
   
 })
 export class AppComponent {
+  app = AppData;
   title = 'fake-virus-pack';
 
   constructor(public dialog: MatDialog, translate: TranslateService) {
@@ -33,10 +38,20 @@ export class AppComponent {
   }
 
   openSettings() {
-    const dialogRef = this.dialog.open(SettingsDialogComponent);
+    this.dialog.open(SettingsDialogComponent);
+  }
 
-    dialogRef.afterClosed().subscribe(result => {
-      console.log(result);
+  openAbout() {
+    this.dialog.open(AboutDialogComponent);
+  }
+
+  checkUpdate() {
+    this.dialog.open(UpdateDialogComponent);
+  }
+
+  launchEgg() {
+    this.dialog.open(LaunchDialogComponent, {
+      data: { program: this.app.programs.find(p => p.name === "egg") }
     });
   }
 }

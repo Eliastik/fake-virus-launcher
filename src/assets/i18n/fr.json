@@ -1,7 +1,9 @@
 {
     "menu": {
         "settings": "Paramètres",
-        "exit": "Quitter l'application"
+        "exit": "Quitter l'application",
+        "update": "Vérifier les mises à jour",
+        "about": "À propos"
     },
     "settingsDialog": {
         "title": "Paramètres",
@@ -48,5 +50,25 @@
     },
     "main": {
         "description": "Ces faux virus sont inoffensifs et n'endommagent pas l'ordinateur, mais ils peuvent vous permettre de faire une blague à vos amis ou vos collègues !"
+    },
+    "launchDialogError": {
+        "title": "Erreur lors du lancement du virus",
+        "description": "Une erreur est survenue lors du lancement du virus. Peut-être que les fichiers nécessaires n'ont pas été trouvés.",
+        "details": "Détail de l'erreur :",
+        "close": "Fermer"
+    },
+    "aboutDialog": {
+        "title": "À propos de l'application",
+        "description": "Une application par Eliastik's Softs. Site web : ",
+        "version": "Version de l'application :",
+        "versionDate": "Date de version :",
+        "close": "Fermer"
+    },
+    "updateDialog": {
+        "title": "Mise à jour",
+        "hasUpdate": "Une mise à jour est disponible !",
+        "hasNoUpdate": "Aucune mise à jour n'est disponible",
+        "close": "Fermer",
+        "download": "Télécharger la mise à jour"
     }
 }

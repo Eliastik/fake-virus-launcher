@@ -4,15 +4,17 @@
       <mat-icon>menu</mat-icon>
     </button>
     <span>Virus Launcher by Eliastik's Softs</span>
+    <span class="spacer"></span>
+    <button mat-icon-button (click)="launchEgg()" id="main-menu"></button>
   </mat-toolbar-row>
 </mat-toolbar>
 <mat-sidenav-container>
   <mat-sidenav #sidenav>
     <mat-nav-list>
       <a mat-list-item (click)="openSettings(); sidenav.close()">{{ 'menu.settings' | translate }}</a>
-      <!--<a mat-list-item (click)="openAbout(); sidenav.close()">À propos</a>
-      <a mat-list-item (click)="checkUpdate(); sidenav.close()">Vérifier les mises à jour</a>-->
-      <a mat-list-item (click)="closeApp()" i18n>{{ 'menu.exit' | translate }}</a>
+      <a mat-list-item (click)="openAbout(); sidenav.close()">{{ 'menu.about' | translate }}</a>
+      <a mat-list-item (click)="checkUpdate(); sidenav.close()">{{ 'menu.update' | translate }}</a>
+      <a mat-list-item (click)="closeApp()">{{ 'menu.exit' | translate }}</a>
     </mat-nav-list>
   </mat-sidenav>
   <mat-sidenav-content>

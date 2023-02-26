@@ -15,7 +15,7 @@ export class ProgramComponent {
 
   launch() {
     this.dialog.open(LaunchDialogComponent, {
-      data: { program: this.program },
+      data: { program: this.program }
     });
   }
 }
