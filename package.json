@@ -10,10 +10,15 @@
     "lint": "ng lint",
     "localize": "ng extract-i18n --format=json",
     "postinstall": "patch-package",
-    "packager": "electron-builder --win portable"
+    "package": "ng build --base-href ./ && electron-builder --win portable",
+    "package-linux": "ng build --base-href ./ && electron-builder --linux appImage"
   },
   "private": true,
-  "dependencies": {
+  "devDependencies": {
+    "ngx-electron": "^2.2.0",
+    "rxjs": "~7.8.0",
+    "tslib": "^2.3.0",
+    "zone.js": "~0.12.0",
     "@angular/animations": "^15.2.0",
     "@angular/cdk": "^15.2.0",
     "@angular/common": "^15.2.0",
@@ -26,16 +31,11 @@
     "@angular/router": "^15.2.0",
     "@ngx-translate/core": "^14.0.0",
     "@ngx-translate/http-loader": "^7.0.0",
-    "ngx-electron": "^2.2.0",
-    "rxjs": "~7.8.0",
-    "tslib": "^2.3.0",
-    "zone.js": "~0.12.0"
-  },
-  "devDependencies": {
     "@angular-devkit/build-angular": "^15.2.0",
     "@angular/cli": "~15.2.0",
     "@angular/compiler-cli": "^15.2.0",
     "@types/jasmine": "~4.3.0",
+    "electron": "^23.1.1",
     "electron-builder": "^23.6.0",
     "jasmine-core": "~4.5.0",
     "karma": "~6.4.0",
@@ -59,6 +59,30 @@
     },
     "directories": {
       "output": "electron/output"
-    }
+    },
+    "files": [
+      "**/*",
+      "!**/node_modules/*/{CHANGELOG.md,README.md,README,readme.md,readme}",
+      "!**/node_modules/*/{test,__tests__,tests,powered-test,example,examples}",
+      "!**/node_modules/*.d.ts",
+      "!**/node_modules/.bin",
+      "!**/*.{iml,o,hprof,orig,pyc,pyo,rbc,swp,csproj,sln,xproj}",
+      "!.editorconfig",
+      "!**/._*",
+      "!**/{.DS_Store,.git,.hg,.svn,CVS,RCS,SCCS,.gitignore,.gitattributes,.angular,.vscode}",
+      "!**/{__pycache__,thumbs.db,.flowconfig,.idea,.vs,.nyc_output}",
+      "!**/{appveyor.yml,.travis.yml,circle.yml}",
+      "!**/{npm-debug.log,yarn.lock,.yarn-integrity,.yarn-metadata.json}",
+      "!**/src/*",
+      "!**/patches/*",
+      "!**/electron/*",
+      "!**/angular.json",
+      "!**/package-lock.json",
+      "!**/package.json",
+      "!**/README.md",
+      "!**/tsconfig.json",
+      "!**/tsconfig.spec.json",
+      "!**/tsconfig.app.json"
+    ]
   }
 }

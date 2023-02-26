@@ -14,7 +14,7 @@
     },
     "programs": {
         "anticlic": "Fenêtres anti-clic",
-        "anticlic_descr": "Un virus qui affiche des fenêtres qui se ferment aussitôt, qui empêchent d'utiliser son ordinateur correctement",
+        "anticlic_descr": "Un virus qui affiche des fenêtres qui se ferment aussitôt, qui empêchent d'utiliser son ordinateur correctement",
         "infinite": "Fenêtres infinies",
         "infinite_descr": "Un virus qui affiche des fenêtres à l'infini, jusqu'à faire planter l'ordinateur (bien qu'il en faudrait énormement)",
         "matrix": "Matrix",
