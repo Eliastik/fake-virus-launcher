@@ -1,0 +1,10 @@
+<h1 mat-dialog-title>{{ 'launchDialog.title' | translate }}</h1>
+<div mat-dialog-content>
+    <div><span>{{ 'launchDialog.description' | translate }}</span></div>
+    <div style="margin-top: 12px;"><span *ngIf="program?.hasWarning">{{ 'launchDialog.warning' | translate }}</span></div>
+    <mat-slide-toggle [(ngModel)]="isFullscreen" *ngIf="program?.hasFullscreen" style="margin-top: 12px;">{{ 'launchDialog.fullscreen' | translate }}</mat-slide-toggle>
+</div>
+<mat-dialog-actions align="end">
+    <button mat-button (click)="launch()">{{ 'launchDialog.yes' | translate }}</button>
+    <button mat-button cdkFocusInitial (click)="closeDialog()">{{ 'launchDialog.no' | translate }}</button>
+</mat-dialog-actions>

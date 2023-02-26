@@ -1,0 +1,14 @@
+<h1 mat-dialog-title>{{ 'settingsDialog.title' | translate }}</h1>
+<div mat-dialog-content>
+  <mat-form-field appearance="fill">
+    <mat-label>{{ 'settingsDialog.language' | translate }}</mat-label>
+    <mat-select [(value)]="language" (valueChange)="changeLanguage($event)">
+        <mat-option *ngFor="let lang of languages" [value]="lang">
+          {{ 'lang.' + lang | translate }}
+        </mat-option>
+      </mat-select>
+  </mat-form-field>
+</div>
+<mat-dialog-actions align="end">
+  <button mat-button [mat-dialog-close]="language" cdkFocusInitial>{{ 'settingsDialog.close' | translate }}</button>
+</mat-dialog-actions>

@@ -1,0 +1,52 @@
+{
+    "menu": {
+        "settings": "Paramètres",
+        "exit": "Quitter l'application"
+    },
+    "settingsDialog": {
+        "title": "Paramètres",
+        "language": "Langue",
+        "close": "Fermer"
+    },
+    "lang": {
+        "fr": "Français",
+        "en": "English"
+    },
+    "programs": {
+        "anticlic": "Fenêtres anti-clic",
+        "anticlic_descr": "Un virus qui affiche des fenêtres qui se ferment aussitôt, qui empêchent d'utiliser son ordinateur correctement",
+        "infinite": "Fenêtres infinies",
+        "infinite_descr": "Un virus qui affiche des fenêtres à l'infini, jusqu'à faire planter l'ordinateur (bien qu'il en faudrait énormement)",
+        "matrix": "Matrix",
+        "matrix_descr": "Un virus qui affiche une coulée de chiffres aléatoires à l'infini, il peut être fermé sans problèmes",
+        "reboot": "Redémarrage",
+        "reboot_descr": "Un virus qui redémarre l'ordinateur après un certain temps, affiché sur un compteur qui défile",
+        "shutdown": "Extinction",
+        "shutdown_descr": "Un virus qui éteint l'ordinateur après un certain temps, affiché sur un compteur qui défile",
+        "beep": "Infinite Beep",
+        "beep_descr": "Un virus qui fait beeper l'ordinateur indéfiniment - ne fonctionne que sur les versions de Windows antérieures à Vista",
+        "mega-flash": "Mega Flash",
+        "mega-flash_descr": "Un virus qui fait flasher l'écran à l'infini",
+        "bsod": "BSOD",
+        "bsod_descr": "Un virus qui affiche un faux écran bleu de la mort de Windows",
+        "msg": "Alerte virus",
+        "msg_descr": "Un virus qui affiche une fausse alerte de virus impossible à fermer",
+        "mega-flash-color": "Mega Flash Color",
+        "mega-flash-color_descr": "Un virus qui fait flasher l'écran à l'infini avec des couleurs",
+        "infinite-matrix": "Fenêtres infinies + Matrix",
+        "infinite-matrix_descr": "Un mix entre les virus Fenêtres infinies et Matrix",
+        "egg": "???",
+        "egg_descr": "Qui sait ce que vous pourriez trouver ?"
+    },
+    "launchDialog": {
+        "yes": "Oui",
+        "no": "Non",
+        "title": "Lancer ce virus ?",
+        "description": "Êtes-vous sûr de vouloir lancer ce virus ?",
+        "fullscreen": "Lancer en mode plein-écran",
+        "warning": "Faites bien attention de sauvegarder tous vos travaux, de fermer les programmes en cours car ce virus redémarre ou éteint l'ordinateur et peut faire perdre vos données non enregistrées. Vous pouvez annuler l'extinction de votre ordinateur si vous exécutez le virus en fermant la fenêtre avant que la progression de la barre ne soit terminée."
+    },
+    "main": {
+        "description": "Ces faux virus sont inoffensifs et n'endommagent pas l'ordinateur, mais ils peuvent vous permettre de faire une blague à vos amis ou vos collègues !"
+    }
+}

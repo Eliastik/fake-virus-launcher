@@ -1,0 +1,10 @@
+<mat-card>
+    <mat-card-header>
+      <div mat-card-avatar><mat-icon aria-hidden="false" fontIcon="{{program?.icon}}"></mat-icon></div>
+      <mat-card-title>{{"programs." + program?.name | translate}}</mat-card-title>
+      <mat-card-subtitle><span class="truncate">{{"programs." + program?.name + "_descr" | translate}}</span></mat-card-subtitle>
+    </mat-card-header>
+    <mat-card-actions align="end">
+      <button mat-button (click)="launch()">Lancer</button>
+    </mat-card-actions>
+  </mat-card>

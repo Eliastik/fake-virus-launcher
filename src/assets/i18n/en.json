@@ -1,0 +1,15 @@
+{
+    "menu": {
+        "settings": "Settings",
+        "exit": "Exit application"
+    },
+    "settingsDialog": {
+        "title": "Settings",
+        "language": "Language",
+        "close": "Close"
+    },
+    "lang": {
+        "fr": "Français",
+        "en": "English"
+    }
+}

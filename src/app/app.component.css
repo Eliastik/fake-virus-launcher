@@ -1,0 +1,7 @@
+#main-menu {
+    margin-right: 8px;
+}
+
+* {
+    user-select: none !important;
+}

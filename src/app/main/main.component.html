@@ -1,0 +1,6 @@
+<mat-grid-list cols="2" rowHeight="2:1">
+    <p style="text-align: center;">{{ 'main.description' | translate }}</p>
+    <mat-grid-tile *ngFor="let program of programs">
+        <app-program [program]="program" *ngIf="!program.isEasterEgg"></app-program>
+    </mat-grid-tile>
+</mat-grid-list>

@@ -1,23 +1,32 @@
 {
   "name": "fake-virus-pack",
   "version": "0.0.0",
+  "main": "app.js",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve",
-    "build": "ng build",
+    "start": "ng build --base-href ./ && electron .",
     "watch": "ng build --watch --configuration development",
-    "test": "ng test"
+    "test": "ng test",
+    "lint": "ng lint",
+    "localize": "ng extract-i18n --format=json",
+    "postinstall": "patch-package",
+    "packager": "electron-builder --win portable"
   },
   "private": true,
   "dependencies": {
     "@angular/animations": "^15.2.0",
+    "@angular/cdk": "^15.2.0",
     "@angular/common": "^15.2.0",
     "@angular/compiler": "^15.2.0",
     "@angular/core": "^15.2.0",
     "@angular/forms": "^15.2.0",
+    "@angular/material": "^15.2.0",
     "@angular/platform-browser": "^15.2.0",
     "@angular/platform-browser-dynamic": "^15.2.0",
     "@angular/router": "^15.2.0",
+    "@ngx-translate/core": "^14.0.0",
+    "@ngx-translate/http-loader": "^7.0.0",
+    "ngx-electron": "^2.2.0",
     "rxjs": "~7.8.0",
     "tslib": "^2.3.0",
     "zone.js": "~0.12.0"
@@ -27,12 +36,29 @@
     "@angular/cli": "~15.2.0",
     "@angular/compiler-cli": "^15.2.0",
     "@types/jasmine": "~4.3.0",
+    "electron-builder": "^23.6.0",
     "jasmine-core": "~4.5.0",
     "karma": "~6.4.0",
     "karma-chrome-launcher": "~3.1.0",
     "karma-coverage": "~2.2.0",
     "karma-jasmine": "~5.1.0",
     "karma-jasmine-html-reporter": "~2.0.0",
+    "patch-package": "^6.5.1",
     "typescript": "~4.9.4"
+  },
+  "build": {
+    "productName": "Virus Launcher by Eliastik's Softs",
+    "appId": "eliastik.virusLauncher",
+    "win": {
+      "target": [
+        "portable"
+      ]
+    },
+    "portable": {
+      "artifactName": "virus-launcher.exe"
+    },
+    "directories": {
+      "output": "electron/output"
+    }
   }
 }
