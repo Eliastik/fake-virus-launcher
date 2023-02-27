@@ -9,3 +9,7 @@
 .spacer {
     flex: 1 1 auto;
 }
+
+:host ::ng-deep .mat-drawer-container {
+    height: calc(100% - 64px) !important;
+}

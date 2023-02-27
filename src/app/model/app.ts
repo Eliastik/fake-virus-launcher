@@ -8,8 +8,8 @@ interface AppData {
 }
 
 const appData: AppData = {
-    "version": "2.0",
-    "date": new Date(2023, 1, 26),
+    "version": "2.0.1",
+    "date": new Date(2023, 1, 27),
     programs: [
         { name: "anticlic", exec: "anticlicvirus.bat", icon: "mouse", hasFullscreen: false, hasWarning: false, isEasterEgg: false },
         { name: "infinite", exec: "infinite.bat", icon: "window", hasFullscreen: false, hasWarning: false, isEasterEgg: false },

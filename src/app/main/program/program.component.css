@@ -1,6 +1,6 @@
 .truncate {
     width: 250px !important;
-    height: 60px !important;
+    height: 65px !important;
     overflow: hidden;
     text-overflow: ellipsis;
     display: inline-block;

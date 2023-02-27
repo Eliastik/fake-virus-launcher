@@ -38,7 +38,8 @@
         "infinite-matrix": "Fenêtres infinies + Matrix",
         "infinite-matrix_descr": "Un mix entre les virus Fenêtres infinies et Matrix",
         "egg": "???",
-        "egg_descr": "Qui sait ce que vous pourriez trouver ?"
+        "egg_descr": "Qui sait ce que vous pourriez trouver ?",
+        "launch": "Lancer"
     },
     "launchDialog": {
         "yes": "Oui",

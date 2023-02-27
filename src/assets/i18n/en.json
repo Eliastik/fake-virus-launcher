@@ -38,7 +38,8 @@
         "infinite-matrix": "Infinite windows + Matrix",
         "infinite-matrix_descr": "A mix between the Infinite windows and Matrix viruses",
         "egg": "???",
-        "egg_descr": "Who knows what you might find?"
+        "egg_descr": "Who knows what you might find?",
+        "launch": "Launch"
     },
     "launchDialog": {
         "yes": "Yes",
@@ -59,7 +60,7 @@
     },
     "aboutDialog": {
         "title": "About the application",
-        "description": "An application by Eliastik's Softs. Website:",
+        "description": "An application by Eliastik's Softs. Website: ",
         "version": "Application version:",
         "versionDate": "Version date:",
         "close": "Close"
