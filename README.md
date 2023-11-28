@@ -1,27 +1,90 @@
-# FakeVirusPack
+# Virus Launcher
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 15.2.0.
+<img src="https://raw.githubusercontent.com/Eliastik/fake-virus-launcher/master/screenshot.png" width="640" alt="Screenshot" />
 
-## Development server
+## English
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+Fake Virus Launcher is a launcher for fake viruses - see [https://www.eliastiksofts.com/faux-virus/](https://www.eliastiksofts.com/faux-virus/)
 
-## Code scaffolding
+### About
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+* Version: 2.0.1 (27/02/2023)
+* By Eliastik - [eliastiksofts.com](http://eliastiksofts.com) - Contact : [eliastiksofts.com/contact](http://eliastiksofts.com/contact)
+* License: GNU GPLv3 (see the LICENCE.txt file)
 
-## Build
+#### Technologies
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+* Angular
+* ElectronJS
+* TypeScript
 
-## Running unit tests
+### How to build?
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+To build the app, you need to have installed Node.js and npm.
 
-## Running end-to-end tests
+To start, run this command:
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+`npm install`
 
-## Further help
+Then run one of these command to compile the application (Angular) then package it into an executable (Electron).
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+The executable will then be packaged in the electron/output folder.
+
+#### For Windows (64 bits)
+
+Please keep in mind that if you want to build the Windows executable on a Linux environment, you will need to install Wine.
+
+`npm run package`
+
+#### For Windows (32 bits)
+
+Please keep in mind that if you want to build the Windows executable (32-bits) on a Linux environment, you will need to install the 32-bit version of Wine.
+
+`npm run package:32`
+
+#### For Linux (32 bits)
+
+`npm run package-linux`
+
+## Français
+
+Fake Virus Launcher est un lanceur de faux virus - voir https://www.eliastiksofts.com/faux-virus/
+
+### À propos
+* Version : 2.0.1 (27/02/2023)
+* Par Eliastik - eliastiksofts.com - Contact : eliastiksofts.com/contact
+* Licence : GNU GPLv3 (voir le fichier LICENCE.txt)
+
+### Technologies
+
+* Angular
+* ElectronJS
+* TypeScript
+
+### Comment compiler ?
+
+Pour compiler l'application, vous devez avoir installé Node.js et npm.
+
+Pour commencer, exécutez cette commande :
+
+`npm install`
+
+Ensuite, exécutez l'une de ces commandes pour compiler l'application (Angular) puis la compiler dans un exécutable (Electron).
+
+L'exécutable sera alors empaqueté dans le dossier electron/output.
+
+#### Pour Windows (64 bits)
+
+Veuillez noter que si vous souhaitez compiler l'exécutable Windows sur un environnement Linux, vous devrez installer Wine.
+
+`npm run package`
+
+#### Pour Windows (32 bits)
+
+Veuillez noter que si vous souhaitez compiler l'exécutable Windows (32 bits) sur un environnement Linux, vous devrez installer la version 32 bits de Wine.
+
+`npm run package:32`
+
+#### Pour Linux (32 bits)
+
+`npm run package-linux`
