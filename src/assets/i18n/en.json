@@ -8,7 +8,13 @@
     "settingsDialog": {
         "title": "Settings",
         "language": "Language",
+        "theme": "Color theme",
         "close": "Close"
+    },
+    "theme": {
+      "auto": "Device theme",
+      "light": "Light theme",
+      "dark": "Dark theme"
     },
     "lang": {
         "fr": "Français",

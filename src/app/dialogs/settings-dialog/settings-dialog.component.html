@@ -1,12 +1,20 @@
 <h1 mat-dialog-title>{{ 'settingsDialog.title' | translate }}</h1>
-<div mat-dialog-content>
+<div class="settingsForm" mat-dialog-content>
   <mat-form-field appearance="fill">
     <mat-label>{{ 'settingsDialog.language' | translate }}</mat-label>
     <mat-select [(value)]="language" (valueChange)="changeLanguage($event)">
-        <mat-option *ngFor="let lang of languages" [value]="lang">
-          {{ 'lang.' + lang | translate }}
-        </mat-option>
-      </mat-select>
+      <mat-option *ngFor="let lang of languages" [value]="lang">
+        {{ 'lang.' + lang | translate }}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+  <mat-form-field appearance="fill">
+    <mat-label>{{ 'settingsDialog.theme' | translate }}</mat-label>
+    <mat-select [(value)]="theme" (valueChange)="changeTheme($event)">
+      <mat-option *ngFor="let theme of themes" [value]="theme">
+        {{ 'theme.' + theme | translate }}
+      </mat-option>
+    </mat-select>
   </mat-form-field>
 </div>
 <mat-dialog-actions align="end">

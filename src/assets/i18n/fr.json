@@ -8,7 +8,13 @@
     "settingsDialog": {
         "title": "Paramètres",
         "language": "Langue",
+        "theme": "Thème de couleurs",
         "close": "Fermer"
+    },
+    "theme": {
+      "auto": "Thème de l'appareil",
+      "light": "Thème clair",
+      "dark": "Thème sombre"
     },
     "lang": {
         "fr": "Français",

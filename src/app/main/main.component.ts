@@ -7,5 +7,7 @@ import AppData from 'src/app/model/app';
   styleUrls: ['./main.component.css']
 })
 export class MainComponent {
+
   programs = AppData.programs;
+
 }
