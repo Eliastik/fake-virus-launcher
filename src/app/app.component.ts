@@ -8,6 +8,7 @@ import AppData from "src/app/model/app";
 import { LaunchDialogComponent } from './dialogs/launch-dialog/launch-dialog.component';
 import { OverlayContainer } from '@angular/cdk/overlay';
 import { UpdateService } from './services/update.service';
+import { app } from "@neutralinojs/lib";
 
 @Component({
   selector: 'app-root',
@@ -65,7 +66,7 @@ export class AppComponent {
   }
 
   closeApp() {
-    window.close();
+    app.exit();
   }
 
   openSettings() {

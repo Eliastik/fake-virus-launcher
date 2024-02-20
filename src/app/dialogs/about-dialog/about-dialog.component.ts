@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { MatDialogRef } from '@angular/material/dialog';
 import { TranslateService } from '@ngx-translate/core';
-import { ElectronService } from 'ngx-electron';
+import { os } from "@neutralinojs/lib";
 import AppData from "src/app/model/app";
 
 @Component({
@@ -14,8 +14,7 @@ export class AboutDialogComponent {
 
   constructor(
     public dialogRef: MatDialogRef<AboutDialogComponent>,
-    private translate: TranslateService,
-    private electronService: ElectronService) { }
+    private translate: TranslateService) { }
 
   closeDialog() {
     this.dialogRef.close();
@@ -26,6 +25,6 @@ export class AboutDialogComponent {
   }
 
   openWebsite() {
-    this.electronService.ipcRenderer.send('launch-website');
+    os.open("https://www.eliastiksofts.com");
   }
 }

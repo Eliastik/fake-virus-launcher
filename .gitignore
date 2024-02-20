@@ -42,3 +42,8 @@ testem.log
 Thumbs.db
 
 electron
+resources/build
+build
+bin
+*.log
+.tmp

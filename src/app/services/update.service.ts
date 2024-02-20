@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
-import { ElectronService } from 'ngx-electron';
 import AppData from "src/app/model/app";
+import { os } from "@neutralinojs/lib";
 
 @Injectable({
   providedIn: 'root'
@@ -12,7 +12,7 @@ export class UpdateService {
   hasUpdate: boolean = false;
   newVersion = this.app.version;
 
-  constructor(private electronService: ElectronService) {
+  constructor() {
     this.checkUpdate();
   }
 
@@ -30,6 +30,6 @@ export class UpdateService {
   }
 
   download() {
-    this.electronService.ipcRenderer.send('launch-update');
+    os.open("https://www.eliastiksofts.com/faux-virus/downloads");
   }
 }

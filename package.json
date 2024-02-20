@@ -1,18 +1,18 @@
 {
   "name": "fake-virus-pack",
-  "version": "2.0.1",
+  "version": "2.1.0",
   "main": "app.js",
   "scripts": {
     "ng": "ng",
-    "start": "ng build --base-href ./ && electron .",
+    "dev": "ng serve",
+    "build": "ng build --base-href ./",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
     "lint": "ng lint",
     "localize": "ng extract-i18n --format=json",
-    "postinstall": "patch-package",
-    "package": "ng build --base-href ./ && electron-builder --win portable",
-    "package:32": "ng build --base-href ./ && electron-builder --win portable --ia32",
-    "package-linux": "ng build --base-href ./ && electron-builder --linux appImage"
+    "neu-run": "ng build --base-href ./ && neu run",
+    "neu-build": "ng build --base-href ./ && neu build",
+    "neu-update": "neu update"
   },
   "private": true,
   "devDependencies": {
@@ -30,11 +30,11 @@
     "@angular/platform-browser": "^17.2.1",
     "@angular/platform-browser-dynamic": "^17.2.1",
     "@angular/router": "^17.2.1",
+    "@neutralinojs/lib": "^5.0.0",
+    "@neutralinojs/neu": "^11.0.0",
     "@ngx-translate/core": "^15.0.0",
     "@ngx-translate/http-loader": "^8.0.0",
     "@types/jasmine": "~5.1.2",
-    "electron": "^29.0.0",
-    "electron-builder": "^24.12.0",
     "jasmine-core": "~5.1.2",
     "karma": "~6.4.2",
     "karma-chrome-launcher": "~3.2.0",
@@ -47,45 +47,5 @@
     "tslib": "^2.6.2",
     "typescript": "~5.3.3",
     "zone.js": "~0.14.4"
-  },
-  "build": {
-    "productName": "Virus Launcher by Eliastik's Softs",
-    "appId": "eliastik.virusLauncher",
-    "win": {
-      "target": [
-        "portable"
-      ]
-    },
-    "portable": {
-      "artifactName": "virus-launcher.exe"
-    },
-    "directories": {
-      "output": "electron/output",
-      "buildResources": "resources"
-    },
-    "files": [
-      "**/*",
-      "!**/node_modules/*/{CHANGELOG.md,README.md,README,readme.md,readme}",
-      "!**/node_modules/*/{test,__tests__,tests,powered-test,example,examples}",
-      "!**/node_modules/*.d.ts",
-      "!**/node_modules/.bin",
-      "!**/*.{iml,o,hprof,orig,pyc,pyo,rbc,swp,csproj,sln,xproj}",
-      "!.editorconfig",
-      "!**/._*",
-      "!**/{.DS_Store,.git,.hg,.svn,CVS,RCS,SCCS,.gitignore,.gitattributes,.angular,.vscode}",
-      "!**/{__pycache__,thumbs.db,.flowconfig,.idea,.vs,.nyc_output}",
-      "!**/{appveyor.yml,.travis.yml,circle.yml}",
-      "!**/{npm-debug.log,yarn.lock,.yarn-integrity,.yarn-metadata.json}",
-      "!**/src/*",
-      "!**/patches/*",
-      "!**/electron/*",
-      "!**/angular.json",
-      "!**/package-lock.json",
-      "!**/package.json",
-      "!**/README.md",
-      "!**/tsconfig.json",
-      "!**/tsconfig.spec.json",
-      "!**/tsconfig.app.json"
-    ]
   }
 }
