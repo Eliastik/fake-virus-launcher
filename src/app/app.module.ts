@@ -16,7 +16,7 @@ import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { MainModule } from "src/app/main/main.module";
-import { NgxElectronModule } from 'ngx-electron';
+import { NgxElectronModule, ElectronService } from 'ngx-electron';
 import { MatBadgeModule } from '@angular/material/badge';
 
 export function HttpLoaderFactory(http: HttpClient) {
@@ -52,7 +52,7 @@ export function HttpLoaderFactory(http: HttpClient) {
       }
     })
   ],
-  providers: [],
+  providers: [ElectronService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
