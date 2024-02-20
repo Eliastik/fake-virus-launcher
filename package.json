@@ -33,7 +33,7 @@
     "@ngx-translate/core": "^15.0.0",
     "@ngx-translate/http-loader": "^8.0.0",
     "@types/jasmine": "~5.1.2",
-    "electron": "^23.3.13",
+    "electron": "^29.0.0",
     "electron-builder": "^24.12.0",
     "jasmine-core": "~5.1.2",
     "karma": "~6.4.2",
