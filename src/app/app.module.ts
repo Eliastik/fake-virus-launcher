@@ -17,6 +17,7 @@ import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { MainModule } from "src/app/main/main.module";
 import { NgxElectronModule } from 'ngx-electron';
+import { MatBadgeModule } from '@angular/material/badge';
 
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
@@ -41,6 +42,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     HttpClientModule,
     MainModule,
     NgxElectronModule,
+    MatBadgeModule,
     TranslateModule.forRoot({
       defaultLanguage: 'en',
       loader: {

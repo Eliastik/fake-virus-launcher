@@ -5,6 +5,6 @@
       <mat-card-subtitle><span class="truncate">{{"programs." + program?.name + "_descr" | translate}}</span></mat-card-subtitle>
     </mat-card-header>
     <mat-card-actions align="end">
-      <button mat-button (click)="launch()">{{"programs.launch" | translate}}</button>
+      <button mat-button (click)="launch()"><mat-icon>play_arrow</mat-icon> {{"programs.launch" | translate}}</button>
     </mat-card-actions>
 </mat-card>

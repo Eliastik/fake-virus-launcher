@@ -5,3 +5,7 @@
     text-overflow: ellipsis;
     display: inline-block;
 }
+
+mat-card-subtitle {
+  margin-top: 20px;
+}

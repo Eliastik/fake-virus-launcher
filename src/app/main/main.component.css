@@ -3,3 +3,10 @@ mat-grid-list {
   margin: 0 auto;
   padding-bottom: 0 !important;
 }
+
+.lead-text {
+  text-align: center;
+  padding-top: 16px;
+  font-size: 13pt;
+  margin-bottom: 16px;
+}

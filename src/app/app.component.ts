@@ -7,6 +7,7 @@ import { UpdateDialogComponent } from './dialogs/update-dialog/update-dialog.com
 import AppData from "src/app/model/app";
 import { LaunchDialogComponent } from './dialogs/launch-dialog/launch-dialog.component';
 import { OverlayContainer } from '@angular/cdk/overlay';
+import { UpdateService } from './services/update.service';
 
 @Component({
   selector: 'app-root',
@@ -21,7 +22,7 @@ export class AppComponent {
   app = AppData;
   title = 'fake-virus-pack';
 
-  constructor(public dialog: MatDialog, translate: TranslateService, private overlay: OverlayContainer) {
+  constructor(public dialog: MatDialog, translate: TranslateService, private overlay: OverlayContainer, public updateService: UpdateService) {
     translate.addLangs(['en', 'fr']);
     translate.setDefaultLang('en');
 

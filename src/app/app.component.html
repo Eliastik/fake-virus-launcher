@@ -5,7 +5,10 @@
     </button>
     <span>Virus Launcher by Eliastik's Softs</span>
     <span class="spacer"></span>
-    <button mat-icon-button (click)="launchEgg()" id="main-menu"></button>
+    <button mat-icon-button (click)="launchEgg()"></button>
+    <button mat-icon-button (click)="checkUpdate()" *ngIf="updateService.hasUpdate">
+      <mat-icon matBadge="!" matBadgeColor="warn">update</mat-icon>
+    </button>
   </mat-toolbar-row>
 </mat-toolbar>
 <mat-sidenav-container>
