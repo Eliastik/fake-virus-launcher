@@ -10,7 +10,7 @@ interface AppData {
 }
 
 const appData: AppData = {
-    "version": "2.0.1",
+    "version": "2.1.0",
     "date": new Date(2024, 1, 21),
     programs: [
         { name: "anticlic", exec: "anticlicvirus.bat", icon: "mouse", hasFullscreen: false, hasWarning: false, isEasterEgg: false },

@@ -8,57 +8,51 @@ Fake Virus Launcher is a launcher for fake viruses - see [https://www.eliastikso
 
 ### About
 
-* Version: 2.0.1 (27/02/2023)
+* Version: 2.1.0 (2/21/2024)
 * By Eliastik - [eliastiksofts.com](http://eliastiksofts.com) - Contact : [eliastiksofts.com/contact](http://eliastiksofts.com/contact)
 * License: GNU GPLv3 (see the LICENCE.txt file)
 
 #### Technologies
 
 * Angular
-* ElectronJS
+* NeutralinoJS
 * TypeScript
 
 ### How to build?
 
-To build the app, you need to have installed Node.js and npm.
+To build the app, you need to have Node.js and npm installed.
 
-To start, run this command:
+To get started, run this command:
 
 `npm install`
 
-Then run one of these command to compile the application (Angular) then package it into an executable (Electron).
+Next, run the following command to download the binaries provided by NeutralinoJS to compile:
 
-The executable will then be packaged in the electron/output folder.
+`npm run neu-update`
 
-#### For Windows (64 bits)
+Next, run the following command to compile the application (Angular) and then compile it into an executable (NeutralinoJS):
 
-Please keep in mind that if you want to build the Windows executable on a Linux environment, you will need to install Wine.
+`npm run neu-build`
 
-`npm run package`
+The application will then be packaged in the dist/virus-launcher folder.
 
-#### For Windows (32 bits)
+You can also run the following command to start the application directly:
 
-Please keep in mind that if you want to build the Windows executable (32-bits) on a Linux environment, you will need to install the 32-bit version of Wine.
-
-`npm run package:32`
-
-#### For Linux (32 bits)
-
-`npm run package-linux`
+`npm run neu-run`
 
 ## Français
 
 Fake Virus Launcher est un lanceur de faux virus - voir https://www.eliastiksofts.com/faux-virus/
 
 ### À propos
-* Version : 2.0.1 (27/02/2023)
+* Version : 2.1.0 (21/03/2024)
 * Par Eliastik - eliastiksofts.com - Contact : eliastiksofts.com/contact
 * Licence : GNU GPLv3 (voir le fichier LICENCE.txt)
 
 ### Technologies
 
 * Angular
-* ElectronJS
+* NeutralinoJS
 * TypeScript
 
 ### Comment compiler ?
@@ -69,22 +63,16 @@ Pour commencer, exécutez cette commande :
 
 `npm install`
 
-Ensuite, exécutez l'une de ces commandes pour compiler l'application (Angular) puis la compiler dans un exécutable (Electron).
+Ensuite, exécutez la commande suivante pour télécharger les binaires fournis par NeutralinoJS pour compiler :
 
-L'exécutable sera alors empaqueté dans le dossier electron/output.
+`npm run neu-update`
 
-#### Pour Windows (64 bits)
+Ensuite, exécutez la commande suivante pour compiler l'application (Angular) puis la compiler dans un exécutable (NeutralinoJS) :
 
-Veuillez noter que si vous souhaitez compiler l'exécutable Windows sur un environnement Linux, vous devrez installer Wine.
+`npm run neu-build`
 
-`npm run package`
+L'application sera alors empaquetée dans le dossier dist/virus-launcher.
 
-#### Pour Windows (32 bits)
+Vous pouvez aussi lancer la commande suivante pour démarrer l'application directement :
 
-Veuillez noter que si vous souhaitez compiler l'exécutable Windows (32 bits) sur un environnement Linux, vous devrez installer la version 32 bits de Wine.
-
-`npm run package:32`
-
-#### Pour Linux (32 bits)
-
-`npm run package-linux`
+`npm run neu-run`
