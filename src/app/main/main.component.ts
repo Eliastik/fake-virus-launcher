@@ -12,11 +12,11 @@ export class MainComponent {
   programs = AppData.programs;
 
   ngOnInit() {
-    this.cols = (window.innerWidth <= 680) ? 1 : 2;
+    this.cols = (window.innerWidth <= 620) ? 1 : 2;
   }
 
   onResize(event: any) {
-    this.cols = (event.target.innerWidth <= 680) ? 1 : 2;
+    this.cols = (event.target.innerWidth <= 620) ? 1 : 2;
   }
 
 }

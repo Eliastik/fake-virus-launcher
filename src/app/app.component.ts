@@ -38,6 +38,7 @@ export class AppComponent {
     this.initializeLangs();
     this.updateTheme();
     window.matchMedia("(prefers-color-scheme: dark)").addEventListener("change", () => this.updateTheme());
+    document.addEventListener("contextmenu", event => event.preventDefault());
   }
 
   async initializeLangs() {

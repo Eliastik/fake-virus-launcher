@@ -10,8 +10,25 @@ mat-card-subtitle {
   margin-top: 20px;
 }
 
-@media screen and (max-width: 760px) {
+@media screen and (max-width: 760px) and (min-width: 651px) {
   :host ::ng-deep .mat-mdc-card-header {
-    max-width: 300px !important;
+    max-width: 280px !important;
+    overflow: hidden;
+  }
+
+  .truncate {
+    width: 220px !important;
+  }
+}
+
+
+@media screen and (max-width: 650px) and (min-width: 621px) {
+  :host ::ng-deep .mat-mdc-card-header {
+    max-width: 260px !important;
+    overflow: hidden;
+  }
+
+  .truncate {
+    width: 210px !important;
   }
 }
