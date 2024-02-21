@@ -9,3 +9,9 @@
 mat-card-subtitle {
   margin-top: 20px;
 }
+
+@media screen and (max-width: 760px) {
+  :host ::ng-deep .mat-mdc-card-header {
+    max-width: 300px !important;
+  }
+}

@@ -8,6 +8,15 @@ import AppData from 'src/app/model/app';
 })
 export class MainComponent {
 
+  cols = 2;
   programs = AppData.programs;
+
+  ngOnInit() {
+    this.cols = (window.innerWidth <= 680) ? 1 : 2;
+  }
+
+  onResize(event: any) {
+    this.cols = (event.target.innerWidth <= 680) ? 1 : 2;
+  }
 
 }
