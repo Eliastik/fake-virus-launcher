@@ -10,14 +10,14 @@
   "enableNativeAPI": true,
   "tokenSecurity": "one-time",
   "logging": {
-    "enabled": true,
-    "writeToLogFile": true
+    "enabled": false,
+    "writeToLogFile": false
   },
   "nativeAllowList": [
     "app.*",
     "os.*",
-    "debug.log",
-    "filesystem.*"
+    "filesystem.*",
+    "storage.*"
   ],
   "globalVariables": {},
   "modes": {
@@ -25,8 +25,8 @@
       "title": "Virus Launcher",
       "width": 800,
       "height": 600,
-      "minWidth": 760,
-      "minHeight": 540,
+      "minWidth": 800,
+      "minHeight": 600,
       "center": true,
       "fullScreen": false,
       "alwaysOnTop": false,
@@ -35,8 +35,8 @@
       "borderless": false,
       "maximize": false,
       "hidden": false,
-      "resizable": false,
-      "exitProcessOnClose": false
+      "resizable": true,
+      "exitProcessOnClose": true
     },
     "browser": {
       "globalVariables": {},

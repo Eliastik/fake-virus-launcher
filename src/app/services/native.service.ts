@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { os, events } from "@neutralinojs/lib";
+import { os, events, storage } from "@neutralinojs/lib";
 import AppData from "src/app/model/app";
 import Program from '../model/program';
 
@@ -10,25 +10,48 @@ export class NativeService {
 
   constructor() { }
 
+  private isNative() {
+    return (window as any)["NL_CWD"] != null;
+  }
+
   openWebsite() {
-    try {
+    if (this.isNative()) {
       os.open(AppData.websiteURL);
-    } catch (e) {
+    } else {
       window.open(AppData.websiteURL);
     }
   }
 
   downloadUpdate() {
-    try {
+    if (this.isNative()) {
       os.open(AppData.downloadUpdateURL);
-    } catch (e) {
-      console.log("open");
+    } else {
       window.open(AppData.downloadUpdateURL);
     }
   }
 
+  async getStorageItem(name: string): Promise<string | null> {
+    if (this.isNative()) {
+      try {
+        return await storage.getData(name);
+      } catch(e) {
+        return null;
+      }
+    } else {
+      return localStorage.getItem(name);
+    }
+  }
+
+  async setStorageItem(name: string, value: string): Promise<void> {
+    if (this.isNative()) {
+      await storage.setData(name, value);
+    } else {
+      localStorage.setItem(name, value);
+    }
+  }
+
   async launchProgram(program: Program | undefined, isFullscreen: boolean): Promise<void> {
-    if (!program) {
+    if (!program || !this.isNative()) {
       return Promise.reject();
     }
 
@@ -51,6 +74,10 @@ export class NativeService {
           }
         }
       });
+
+      setTimeout(() => {
+        resolve();
+      }, 1000);
     });
   }
 }

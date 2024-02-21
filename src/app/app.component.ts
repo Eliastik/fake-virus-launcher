@@ -9,6 +9,7 @@ import { LaunchDialogComponent } from './dialogs/launch-dialog/launch-dialog.com
 import { OverlayContainer } from '@angular/cdk/overlay';
 import { UpdateService } from './services/update.service';
 import { app } from "@neutralinojs/lib";
+import { NativeService } from './services/native.service';
 
 @Component({
   selector: 'app-root',
@@ -23,29 +24,37 @@ export class AppComponent {
   app = AppData;
   title = 'fake-virus-pack';
 
-  constructor(public dialog: MatDialog, translate: TranslateService, private overlay: OverlayContainer, public updateService: UpdateService) {
+  constructor(
+    public dialog: MatDialog,
+    private translate: TranslateService,
+    private overlay: OverlayContainer,
+    public updateService: UpdateService,
+    private nativeService: NativeService) {
     translate.addLangs(['en', 'fr']);
     translate.setDefaultLang('en');
-
-    const browserLang = translate.getBrowserLang();
-    const storageLang = localStorage.getItem("language");
-
-    if(storageLang) {
-      translate.use(storageLang);
-    } else if(browserLang) {
-      translate.use(browserLang.match(/en|fr/) ? browserLang : 'en');
-    } else {
-      translate.use('en');
-    }
   }
 
   ngOnInit() {
+    this.initializeLangs();
     this.updateTheme();
     window.matchMedia("(prefers-color-scheme: dark)").addEventListener("change", () => this.updateTheme());
   }
 
-  updateTheme() {
-    const currentTheme = localStorage.getItem("theme") || "auto";
+  async initializeLangs() {
+    const browserLang = this.translate.getBrowserLang();
+    const storageLang = await this.nativeService.getStorageItem("lang");
+
+    if(storageLang) {
+      this.translate.use(storageLang);
+    } else if(browserLang) {
+      this.translate.use(browserLang.match(/en|fr/) ? browserLang : 'en');
+    } else {
+      this.translate.use('en');
+    }
+  }
+
+  async updateTheme() {
+    const currentTheme = await this.nativeService.getStorageItem("theme") || "auto";
     const currenThemePreference = currentTheme === "auto" ? this.getUserThemePreference() : currentTheme;
 
     if (currenThemePreference === "dark") {
