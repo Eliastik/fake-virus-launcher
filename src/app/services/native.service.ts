@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { os, events, storage } from "@neutralinojs/lib";
+import { os, events, storage, window as neutralinoWindow } from "@neutralinojs/lib";
 import AppData from "src/app/model/app";
 import Program from '../model/program';
 
@@ -79,5 +79,11 @@ export class NativeService {
         resolve();
       }, 1000);
     });
+  }
+
+  minimizeWindow() {
+    if (this.isNative()) {
+      neutralinoWindow.minimize();
+    }
   }
 }

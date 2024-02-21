@@ -34,3 +34,7 @@ $angular-dark-theme: mat.define-dark-theme((color: (primary: $angular-primary-da
 .darkMode {
   @include mat.all-component-colors($angular-dark-theme);
 }
+
+.mdc-dialog__container {
+  user-select: none !important;
+}

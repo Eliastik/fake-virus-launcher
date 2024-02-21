@@ -17,7 +17,8 @@
     "app.*",
     "os.*",
     "filesystem.*",
-    "storage.*"
+    "storage.*",
+    "window.*"
   ],
   "globalVariables": {},
   "modes": {

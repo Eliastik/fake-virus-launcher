@@ -26,14 +26,22 @@ export class LaunchDialogComponent {
   }
 
   async launch() {
+    let hasError = false;
+
     try {
       await this.nativeService.launchProgram(this.program, this.isFullscreen);
     } catch (e) {
       this.dialog.open(LaunchDialogErrorComponent, {
         data: { details: e },
       });
+
+      hasError = true;
     }
 
     this.closeDialog();
+
+    if (!hasError) {
+      this.nativeService.minimizeWindow();
+    }
   }
 }
