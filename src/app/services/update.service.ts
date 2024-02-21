@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import AppData from "src/app/model/app";
-import { os } from "@neutralinojs/lib";
+import { NativeService } from './native.service';
 
 @Injectable({
   providedIn: 'root'
@@ -12,7 +12,7 @@ export class UpdateService {
   hasUpdate: boolean = false;
   newVersion = this.app.version;
 
-  constructor() {
+  constructor(private nativeService: NativeService) {
     this.checkUpdate();
   }
 
@@ -30,6 +30,6 @@ export class UpdateService {
   }
 
   download() {
-    os.open("https://www.eliastiksofts.com/faux-virus/downloads");
+    this.nativeService.downloadUpdate();
   }
 }

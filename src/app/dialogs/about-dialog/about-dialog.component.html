@@ -1,6 +1,6 @@
 <h1 mat-dialog-title>{{ 'aboutDialog.title' | translate }}</h1>
 <div mat-dialog-content>
-    <div><span>{{ 'aboutDialog.description' | translate }}</span> <a mat-button (click)="openWebsite()">https://www.eliastiksofts.com</a></div>
+    <div><span>{{ 'aboutDialog.description' | translate }}</span> <a mat-button (click)="openWebsite()">{{app.websiteURL}}</a></div>
     <div><span>{{ 'aboutDialog.version' | translate }} {{app.version}}</span></div>
     <div style="margin-top: 8px;"><span>{{ 'aboutDialog.versionDate' | translate }} {{renderDate()}}</span></div>
 </div>

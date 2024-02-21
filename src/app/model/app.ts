@@ -5,11 +5,13 @@ interface AppData {
     date: Date;
     programs: Program[];
     updateURL: string;
+    websiteURL: string;
+    downloadUpdateURL: string;
 }
 
 const appData: AppData = {
     "version": "2.0.1",
-    "date": new Date(2023, 1, 27),
+    "date": new Date(2024, 1, 21),
     programs: [
         { name: "anticlic", exec: "anticlicvirus.bat", icon: "mouse", hasFullscreen: false, hasWarning: false, isEasterEgg: false },
         { name: "infinite", exec: "infinite.bat", icon: "window", hasFullscreen: false, hasWarning: false, isEasterEgg: false },
@@ -24,7 +26,9 @@ const appData: AppData = {
         { name: "infinite-matrix", exec: "infinite-matrix.bat", icon: "terminal", hasFullscreen: false, hasWarning: false, isEasterEgg: false },
         { name: "egg", exec: "w.bat", icon: "egg", hasFullscreen: false, hasWarning: false, isEasterEgg: true }
     ],
-    "updateURL": "https://www.eliastiksofts.com/faux-virus/updater.txt"
+    "updateURL": "https://www.eliastiksofts.com/faux-virus/updater.txt",
+    "websiteURL": "https://www.eliastiksofts.com",
+    "downloadUpdateURL": "https://www.eliastiksofts.com/faux-virus/downloads"
 };
 
 export default appData;

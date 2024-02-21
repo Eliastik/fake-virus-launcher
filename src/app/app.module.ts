@@ -16,8 +16,8 @@ import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { MainModule } from "src/app/main/main.module";
-import { NgxElectronModule, ElectronService } from 'ngx-electron';
 import { MatBadgeModule } from '@angular/material/badge';
+import { MatTooltipModule } from '@angular/material/tooltip';
 
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
@@ -41,8 +41,8 @@ export function HttpLoaderFactory(http: HttpClient) {
     DialogsModule,
     HttpClientModule,
     MainModule,
-    NgxElectronModule,
     MatBadgeModule,
+    MatTooltipModule,
     TranslateModule.forRoot({
       defaultLanguage: 'en',
       loader: {
@@ -52,7 +52,7 @@ export function HttpLoaderFactory(http: HttpClient) {
       }
     })
   ],
-  providers: [ElectronService],
+  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

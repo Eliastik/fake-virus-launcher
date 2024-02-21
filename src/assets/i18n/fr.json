@@ -3,7 +3,8 @@
         "settings": "Paramètres",
         "exit": "Quitter l'application",
         "update": "Vérifier les mises à jour",
-        "about": "À propos"
+        "about": "À propos",
+        "updateAvailable": "Une mise à jour est disponible !"
     },
     "settingsDialog": {
         "title": "Paramètres",

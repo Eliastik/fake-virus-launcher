@@ -3,7 +3,8 @@
         "settings": "Settings",
         "exit": "Exit application",
         "update": "Check update",
-        "about": "About"
+        "about": "About",
+        "updateAvailable": "An update is available!"
     },
     "settingsDialog": {
         "title": "Settings",

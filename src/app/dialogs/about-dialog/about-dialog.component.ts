@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
 import { MatDialogRef } from '@angular/material/dialog';
 import { TranslateService } from '@ngx-translate/core';
-import { os } from "@neutralinojs/lib";
 import AppData from "src/app/model/app";
+import { NativeService } from 'src/app/services/native.service';
 
 @Component({
   selector: 'app-about-dialog',
@@ -14,7 +14,8 @@ export class AboutDialogComponent {
 
   constructor(
     public dialogRef: MatDialogRef<AboutDialogComponent>,
-    private translate: TranslateService) { }
+    private translate: TranslateService,
+    private nativeService: NativeService) { }
 
   closeDialog() {
     this.dialogRef.close();
@@ -25,6 +26,6 @@ export class AboutDialogComponent {
   }
 
   openWebsite() {
-    os.open("https://www.eliastiksofts.com");
+    this.nativeService.openWebsite();
   }
 }
