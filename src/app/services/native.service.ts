@@ -1,5 +1,6 @@
-import { Injectable } from '@angular/core';
+import { EventEmitter, Injectable, Output } from '@angular/core';
 import { os, events, storage, filesystem, window as neutralinoWindow } from "@neutralinojs/lib";
+import { BlobReader, ZipReader, BlobWriter } from "@zip.js/zip.js";
 import AppData from "src/app/model/app";
 import Program from '../model/program';
 
@@ -7,6 +8,10 @@ import Program from '../model/program';
   providedIn: 'root'
 })
 export class NativeService {
+
+  @Output() DownloadingAssetsEvent = new EventEmitter<void>();
+  @Output() finishedDownloadingAssetsEvent = new EventEmitter<void>();
+  @Output() errorDownloadingAssetsEvent = new EventEmitter<boolean>();
 
   missingFiles: string[] = [];
 
@@ -94,12 +99,58 @@ export class NativeService {
       return [];
     }
 
-    const directory = await filesystem.readDirectory(AppData.assetsDirectory);
-    const filesInDirectory = directory.map(f => f.entry);
     const assetsFiles = [...AppData.programs.map(p => p.exec), ...AppData.additionalAssetFiles];
-    const missingFiles = assetsFiles.filter(file => !filesInDirectory.includes(file));
-    this.missingFiles = missingFiles;
 
-    return missingFiles;
+    try {
+      const directory = await filesystem.readDirectory(AppData.assetsDirectory);
+      const filesInDirectory = directory.map(f => f.entry);
+      const missingFiles = assetsFiles.filter(file => !filesInDirectory.includes(file));
+      this.missingFiles = missingFiles;
+    } catch(e: any) {
+      if (e && e.code === "NE_FS_NOPATHE") {
+        this.missingFiles = [...assetsFiles];
+      }
+    }
+
+    return this.missingFiles;
+  }
+
+  async downloadAssets(): Promise<void> {
+    this.DownloadingAssetsEvent.emit();
+
+    try {
+      await filesystem.getStats(AppData.assetsDirectory);
+    } catch(e: any) {
+      if (e && e.code === "NE_FS_NOPATHE") {
+        await filesystem.createDirectory(AppData.assetsDirectory);
+      }
+    }
+
+    try {
+      const archive = await fetch(AppData.assetsDownloadURL);
+      const archiveBlob = await archive.blob();
+
+      const zipFileReader = new BlobReader(archiveBlob);
+      const zipReader = new ZipReader(zipFileReader);
+      const entries = await zipReader.getEntries();
+
+      for(const entry of entries) {
+        if (entry && entry.getData) {
+          const blobWriter = new BlobWriter();
+          const data = await entry.getData(blobWriter);
+
+          if (data) {
+            await filesystem.writeBinaryFile(AppData.assetsDirectory + "/" + entry.filename, await data.arrayBuffer());
+          }
+        }
+      }
+
+      await this.verifyAssetsList();
+    } catch(e) {
+      console.error(e);
+      this.errorDownloadingAssetsEvent.emit();
+    }
+
+    this.finishedDownloadingAssetsEvent.emit();
   }
 }

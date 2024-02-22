@@ -9,6 +9,7 @@ interface AppData {
     updateURL: string;
     websiteURL: string;
     downloadUpdateURL: string;
+    assetsDownloadURL: string;
 }
 
 const appData: AppData = {
@@ -30,9 +31,10 @@ const appData: AppData = {
     ],
     "assetsDirectory": "assets",
     "additionalAssetFiles": ["screen.exe"],
-    "updateURL": "https://www.eliastiksofts.com/faux-virus/updater.txt",
     "websiteURL": "https://www.eliastiksofts.com",
-    "downloadUpdateURL": "https://www.eliastiksofts.com/faux-virus/downloads"
+    "updateURL": "https://www.eliastiksofts.com/faux-virus/updater.txt",
+    "downloadUpdateURL": "https://www.eliastiksofts.com/faux-virus/downloads",
+    "assetsDownloadURL": "https://www.eliastiksofts.com/faux-virus/downloads/assets/"
 };
 
 export default appData;

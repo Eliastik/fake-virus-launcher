@@ -5,6 +5,6 @@
     <div style="margin-top: 8px;">{{missingFiles && missingFiles.join(", ")}}</div>
 </div>
 <mat-dialog-actions align="end">
-    <button mat-button cdkFocusInitial (click)="closeDialog()">{{ 'missingFilesDialog.download' | translate }}</button>
+    <button mat-button cdkFocusInitial (click)="downloadAssets()">{{ 'missingFilesDialog.download' | translate }}</button>
     <button mat-button cdkFocusInitial (click)="closeDialog()">{{ 'missingFilesDialog.close' | translate }}</button>
 </mat-dialog-actions>

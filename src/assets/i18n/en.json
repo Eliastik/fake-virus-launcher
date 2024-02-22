@@ -5,7 +5,7 @@
         "update": "Check update",
         "about": "About",
         "updateAvailable": "An update is available!",
-        "missingFiles": "Files are missing"
+        "missingFiles": "Some files are missing"
     },
     "settingsDialog": {
         "title": "Settings",
