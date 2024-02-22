@@ -10,12 +10,18 @@ import { NativeService } from 'src/app/services/native.service';
 export class ModifiedFilesComponent {
 
   modifiedFiles: string[] = [];
+  dontShowAgain = false;
 
   constructor(
     public dialogRef: MatDialogRef<ModifiedFilesComponent>,
     private nativeService: NativeService,
     @Inject(MAT_DIALOG_DATA) public data: {modifiedFiles: string[]}) {
     this.modifiedFiles = data.modifiedFiles;
+    this.setupDontShowAgain();
+  }
+
+  async setupDontShowAgain() {
+    this.dontShowAgain = (await this.nativeService.getStorageItem("dontShowModifiedFiles")) === "true";
   }
 
   closeDialog() {
@@ -25,5 +31,9 @@ export class ModifiedFilesComponent {
   downloadAssets() {
     this.nativeService.downloadAssets();
     this.closeDialog();
+  }
+
+  changeDontShowAgain() {
+    this.nativeService.setStorageItem("dontShowModifiedFiles", "" + this.dontShowAgain);
   }
 }

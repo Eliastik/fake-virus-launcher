@@ -72,7 +72,7 @@ export class AppComponent {
     } else {
       const modifiedFiles = await this.nativeService.verifyAssetsHashs();
 
-      if (modifiedFiles.length > 0) {
+      if (modifiedFiles.length > 0 && (await this.nativeService.getStorageItem("dontShowModifiedFiles")) !== "true") {
         this.dialog.open(ModifiedFilesComponent, {
           data: { modifiedFiles }
         });
