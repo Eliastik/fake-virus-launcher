@@ -10,9 +10,3 @@ mat-grid-list {
   font-size: 13pt;
   margin-bottom: 16px;
 }
-
-@media screen and (max-width: 620px) {
-  :host ::ng-deep body {
-    margin-bottom: -200px;
-  }
-}

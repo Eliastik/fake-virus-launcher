@@ -9,14 +9,14 @@ import AppData from 'src/app/model/app';
 export class MainComponent {
 
   cols = 2;
-  programs = AppData.programs;
+  programs = AppData.programs.filter(program => !program.isEasterEgg);
 
   ngOnInit() {
-    this.cols = (window.innerWidth <= 620) ? 1 : 2;
+    this.cols = (window.innerWidth <= 580) ? 1 : 2;
   }
 
   onResize(event: any) {
-    this.cols = (event.target.innerWidth <= 620) ? 1 : 2;
+    this.cols = (event.target.innerWidth <= 580) ? 1 : 2;
   }
 
 }

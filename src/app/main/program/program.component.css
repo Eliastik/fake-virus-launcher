@@ -32,3 +32,14 @@ mat-card-subtitle {
     width: 210px !important;
   }
 }
+
+@media screen and (max-width: 620px) and (min-width: 581px) {
+  :host ::ng-deep .mat-mdc-card-header {
+    max-width: 240px !important;
+    overflow: hidden;
+  }
+
+  .truncate {
+    width: 200px !important;
+  }
+}
