@@ -5,7 +5,8 @@
         "update": "Vérifier les mises à jour",
         "about": "À propos",
         "updateAvailable": "Une mise à jour est disponible !",
-        "missingFiles": "Des fichiers sont manquants"
+        "missingFiles": "Des fichiers sont manquants",
+        "modifiedFiles": "Des fichiers sont altérés"
     },
     "settingsDialog": {
         "title": "Paramètres",
@@ -94,5 +95,13 @@
       "hasErrorDescription": "Une erreur est survenue lors du téléchargement des fichiers.",
       "retry": "Réessayer",
       "close": "Fermer"
+    },
+    "modifiedFilesDialog": {
+      "title": "Fichiers altérés",
+      "description": "Certains fichiers ont été altérés, ils peuvent ne plus fonctionner correctement. Vous pouvez corriger les fichiers altérés en les re-téléchargeant en cliquant sur le bouton ci-dessous. Si vous avez modifié les fichiers vous-même, vous pouvez juste ignorer cet avertisement en cochant Ne plus afficher.",
+      "details": "Liste des fichiers altérés :",
+      "close": "Fermer",
+      "download": "Corriger les fichiers altérés",
+      "dontShowAgain": "Ne plus afficher"
     }
 }

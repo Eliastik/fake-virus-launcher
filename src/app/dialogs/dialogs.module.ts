@@ -15,6 +15,7 @@ import { AboutDialogComponent } from './about-dialog/about-dialog.component';
 import { UpdateDialogComponent } from './update-dialog/update-dialog.component';
 import { MissingFilesDialogComponent } from './missing-files-dialog/missing-files-dialog.component';
 import { DownloadingFilesDialogComponent } from './downloading-files-dialog/downloading-files-dialog.component';
+import { ModifiedFilesComponent } from './modified-files-dialog/modified-files-dialog.component';
 
 
 
@@ -26,7 +27,8 @@ import { DownloadingFilesDialogComponent } from './downloading-files-dialog/down
     AboutDialogComponent,
     UpdateDialogComponent,
     MissingFilesDialogComponent,
-    DownloadingFilesDialogComponent
+    DownloadingFilesDialogComponent,
+    ModifiedFilesComponent
   ],
   imports: [
     CommonModule,

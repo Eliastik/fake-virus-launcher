@@ -12,6 +12,7 @@ import { app } from "@neutralinojs/lib";
 import { NativeService } from './services/native.service';
 import { MissingFilesDialogComponent } from './dialogs/missing-files-dialog/missing-files-dialog.component';
 import { DownloadingFilesDialogComponent } from './dialogs/downloading-files-dialog/downloading-files-dialog.component';
+import { ModifiedFilesComponent } from './dialogs/modified-files-dialog/modified-files-dialog.component';
 
 @Component({
   selector: 'app-root',
@@ -69,7 +70,13 @@ export class AppComponent {
         data: { missingFiles }
       });
     } else {
-      //const modifiedFiles = await this.nativeService.verifyModifiedAssets();
+      const modifiedFiles = await this.nativeService.verifyAssetsHashs();
+
+      if (modifiedFiles.length > 0) {
+        this.dialog.open(ModifiedFilesComponent, {
+          data: { modifiedFiles }
+        });
+      }
     }
   }
 
@@ -120,6 +127,12 @@ export class AppComponent {
   showMissingFiles() {
     this.dialog.open(MissingFilesDialogComponent, {
       data: { missingFiles: this.nativeService.missingFiles }
+    });
+  }
+
+  showModifiedFiles() {
+    this.dialog.open(ModifiedFilesComponent, {
+      data: { modifiedFiles: this.nativeService.modifiedFiles }
     });
   }
 }

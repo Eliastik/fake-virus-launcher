@@ -2,7 +2,7 @@ import { EventEmitter, Injectable, Output } from '@angular/core';
 import { os, events, storage, filesystem, window as neutralinoWindow } from "@neutralinojs/lib";
 import { BlobReader, ZipReader, BlobWriter } from "@zip.js/zip.js";
 import AppData from "src/app/model/app";
-import Program from '../model/program';
+import { FileProgram, Program } from '../model/program';
 
 @Injectable({
   providedIn: 'root'
@@ -14,6 +14,7 @@ export class NativeService {
   @Output() errorDownloadingAssetsEvent = new EventEmitter<boolean>();
 
   missingFiles: string[] = [];
+  modifiedFiles: string[] = [];
 
   constructor() { }
 
@@ -63,7 +64,7 @@ export class NativeService {
     }
 
     const path = (window as any)["NL_CWD"] + "\\" + AppData.assetsDirectory + "\\";
-    const executablePath = "start cmd.exe /C \"" + path + program.exec + "\"" + (isFullscreen ? " /fullscreen" : "");
+    const executablePath = "start cmd.exe /C \"" + path + program.file.exec + "\"" + (isFullscreen ? " /fullscreen" : "");
 
     const proc = await os.spawnProcess(executablePath, path);
 
@@ -95,19 +96,27 @@ export class NativeService {
     }
   }
 
+  private getAssetsFiles(): string[] {
+    return [...AppData.programs.map(p => p.file && p.file.exec), ...AppData.additionalAssetFiles.map(p => p.exec)];
+  }
+
+  private getAssetsData(): FileProgram[] {
+    return [...AppData.programs.map(p => p.file), ...AppData.additionalAssetFiles];
+  }
+
   async verifyAssetsList(): Promise<string[]> {
     if (!this.isNative()) {
       return [];
     }
 
-    const assetsFiles = [...AppData.programs.map(p => p.exec), ...AppData.additionalAssetFiles];
+    const assetsFiles = this.getAssetsFiles();
 
     try {
       const directory = await filesystem.readDirectory(AppData.assetsDirectory);
       const filesInDirectory = directory.map(f => f.entry);
       const missingFiles = assetsFiles.filter(file => !filesInDirectory.includes(file));
       this.missingFiles = missingFiles;
-    } catch(e: any) {
+    } catch (e: any) {
       if (e && e.code === "NE_FS_NOPATHE") {
         this.missingFiles = [...assetsFiles];
       }
@@ -116,12 +125,60 @@ export class NativeService {
     return this.missingFiles;
   }
 
+  private hex(buffer: ArrayBuffer) {
+    let digest = "";
+    const view = new DataView(buffer)
+
+    for (let i = 0; i < view.byteLength; i += 4) {
+      const value = view.getUint32(i)
+      const stringValue = value.toString(16)
+      const padding = '00000000'
+      const paddedValue = (padding + stringValue).slice(-padding.length)
+      digest += paddedValue
+    }
+
+    return digest;
+  }
+
+  async verifyAssetsHashs(): Promise<string[]> {
+      if(!this.isNative()) {
+      return [];
+    }
+
+    const assetsFiles = this.getAssetsData();
+
+    try {
+      const directory = await filesystem.readDirectory(AppData.assetsDirectory);
+      const filesInDirectory = directory.map(f => f.entry);
+      const modified = [];
+
+      for (const file of filesInDirectory) {
+        const assetData = assetsFiles.find(p => p.exec === file);
+        const data = await filesystem.readBinaryFile(AppData.assetsDirectory + "/" + file);
+
+        if (data && assetData) {
+          const hash = this.hex(await crypto.subtle.digest("SHA-256", data));
+
+          if (hash !== assetData.hashSHA256) {
+            modified.push(file);
+          }
+        }
+      }
+
+      this.modifiedFiles = modified;
+    } catch (e: any) {
+      console.error(e);
+    }
+
+    return this.modifiedFiles;
+  }
+
   async downloadAssets(): Promise<void> {
     this.downloadingAssetsEvent.emit();
 
     try {
       await filesystem.getStats(AppData.assetsDirectory);
-    } catch(e: any) {
+    } catch (e: any) {
       if (e && e.code === "NE_FS_NOPATHE") {
         await filesystem.createDirectory(AppData.assetsDirectory);
       }
@@ -135,7 +192,7 @@ export class NativeService {
       const zipReader = new ZipReader(zipFileReader);
       const entries = await zipReader.getEntries();
 
-      for(const entry of entries) {
+      for (const entry of entries) {
         if (entry && entry.getData) {
           const blobWriter = new BlobWriter();
           const data = await entry.getData(blobWriter);
@@ -145,9 +202,12 @@ export class NativeService {
           }
         }
       }
+      const result = await this.verifyAssetsList();
 
-      await this.verifyAssetsList();
-    } catch(e) {
+      if (result.length === 0) {
+        await this.verifyAssetsHashs();
+      }
+    } catch (e) {
       console.error(e);
       this.errorDownloadingAssetsEvent.emit();
     }

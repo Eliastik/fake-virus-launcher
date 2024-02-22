@@ -5,7 +5,8 @@
         "update": "Check update",
         "about": "About",
         "updateAvailable": "An update is available!",
-        "missingFiles": "Some files are missing"
+        "missingFiles": "Some files are missing",
+        "modifiedFiles": "Some files are corrupted"
     },
     "settingsDialog": {
         "title": "Settings",
@@ -94,5 +95,13 @@
       "hasErrorDescription": "An error occurred while downloading files.",
       "retry": "Retry",
       "close": "Close"
+    },
+    "modifiedFilesDialog": {
+      "title": "Corrupted files",
+      "description": "Some files have been corrupted and may no longer work properly. You can fix corrupted files by re-downloading them by clicking on the button below. If you've modified the files yourself, you can simply ignore this warning by checking Don't show again.",
+      "details": "List of corrupted files:",
+      "close": "Close",
+      "download": "Fix corrupted files",
+      "dontShowAgain": "Don't show again"
     }
 }

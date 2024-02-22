@@ -1,6 +1,11 @@
-export default interface Program {
+export interface FileProgram {
+  exec: string;
+  hashSHA256: string;
+}
+
+export interface Program {
     name: string;
-    exec: string;
+    file: FileProgram;
     icon: string;
     hasWarning: boolean;
     hasFullscreen: boolean;
