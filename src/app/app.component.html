@@ -6,6 +6,9 @@
     <span>Virus Launcher by Eliastik's Softs</span>
     <span class="spacer"></span>
     <button mat-icon-button (click)="launchEgg()"></button>
+    <button mat-icon-button (click)="showMissingFiles()" *ngIf="nativeService.missingFiles && nativeService.missingFiles.length > 0" matTooltip="{{ 'menu.missingFiles' | translate }}">
+      <mat-icon matBadge="!" matBadgeColor="warn" aria-hidden="false">warning</mat-icon>
+    </button>
     <button mat-icon-button (click)="checkUpdate()" *ngIf="updateService.hasUpdate" matTooltip="{{ 'menu.updateAvailable' | translate }}">
       <mat-icon matBadge="!" matBadgeColor="warn" aria-hidden="false">update</mat-icon>
     </button>

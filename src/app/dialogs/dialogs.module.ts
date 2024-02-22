@@ -13,6 +13,7 @@ import { LaunchDialogComponent } from './launch-dialog/launch-dialog.component';
 import { LaunchDialogErrorComponent } from './launch-dialog-error/launch-dialog-error.component';
 import { AboutDialogComponent } from './about-dialog/about-dialog.component';
 import { UpdateDialogComponent } from './update-dialog/update-dialog.component';
+import { MissingFilesDialogComponent } from './missing-files-dialog/missing-files-dialog.component';
 
 
 
@@ -22,7 +23,8 @@ import { UpdateDialogComponent } from './update-dialog/update-dialog.component';
     LaunchDialogComponent,
     LaunchDialogErrorComponent,
     AboutDialogComponent,
-    UpdateDialogComponent
+    UpdateDialogComponent,
+    MissingFilesDialogComponent
   ],
   imports: [
     CommonModule,

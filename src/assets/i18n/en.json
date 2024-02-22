@@ -4,7 +4,8 @@
         "exit": "Exit application",
         "update": "Check update",
         "about": "About",
-        "updateAvailable": "An update is available!"
+        "updateAvailable": "An update is available!",
+        "missingFiles": "Files are missing"
     },
     "settingsDialog": {
         "title": "Settings",
@@ -78,5 +79,12 @@
         "hasNoUpdate": "No update is available",
         "close": "Close",
         "download": "Download update"
+    },
+    "missingFilesDialog": {
+        "title": "Missing files",
+        "description": "Some files are missing. They are required to run the fake viruses. You can download the missing files by clicking on the button below.",
+        "details": "Missing files list:",
+        "close": "Close",
+        "download": "Download missing files"
     }
 }

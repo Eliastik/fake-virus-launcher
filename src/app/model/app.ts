@@ -4,6 +4,8 @@ interface AppData {
     version: string;
     date: Date;
     programs: Program[];
+    assetsDirectory: string;
+    additionalAssetFiles: string[],
     updateURL: string;
     websiteURL: string;
     downloadUpdateURL: string;
@@ -26,6 +28,8 @@ const appData: AppData = {
         { name: "infinite-matrix", exec: "infinite-matrix.bat", icon: "terminal", hasFullscreen: false, hasWarning: false, isEasterEgg: false },
         { name: "egg", exec: "w.bat", icon: "egg", hasFullscreen: false, hasWarning: false, isEasterEgg: true }
     ],
+    "assetsDirectory": "assets",
+    "additionalAssetFiles": ["screen.exe"],
     "updateURL": "https://www.eliastiksofts.com/faux-virus/updater.txt",
     "websiteURL": "https://www.eliastiksofts.com",
     "downloadUpdateURL": "https://www.eliastiksofts.com/faux-virus/downloads"

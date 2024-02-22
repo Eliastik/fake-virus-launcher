@@ -10,6 +10,7 @@ import { OverlayContainer } from '@angular/cdk/overlay';
 import { UpdateService } from './services/update.service';
 import { app } from "@neutralinojs/lib";
 import { NativeService } from './services/native.service';
+import { MissingFilesDialogComponent } from './dialogs/missing-files-dialog/missing-files-dialog.component';
 
 @Component({
   selector: 'app-root',
@@ -29,7 +30,7 @@ export class AppComponent {
     private translate: TranslateService,
     private overlay: OverlayContainer,
     public updateService: UpdateService,
-    private nativeService: NativeService) {
+    public nativeService: NativeService) {
     translate.addLangs(['en', 'fr']);
     translate.setDefaultLang('en');
   }
@@ -37,6 +38,7 @@ export class AppComponent {
   ngOnInit() {
     this.initializeLangs();
     this.updateTheme();
+    this.checkFiles();
     window.matchMedia("(prefers-color-scheme: dark)").addEventListener("change", () => this.updateTheme());
     document.addEventListener("contextmenu", event => event.preventDefault());
   }
@@ -51,6 +53,18 @@ export class AppComponent {
       this.translate.use(browserLang.match(/en|fr/) ? browserLang : 'en');
     } else {
       this.translate.use('en');
+    }
+  }
+
+  async checkFiles() {
+    const missingFiles = await this.nativeService.verifyAssetsList();
+
+    if (missingFiles.length > 0) {
+      this.dialog.open(MissingFilesDialogComponent, {
+        data: { missingFiles }
+      });
+    } else {
+      //const modifiedFiles = await this.nativeService.verifyModifiedAssets();
     }
   }
 
@@ -95,6 +109,12 @@ export class AppComponent {
   launchEgg() {
     this.dialog.open(LaunchDialogComponent, {
       data: { program: this.app.programs.find(p => p.name === "egg") }
+    });
+  }
+
+  showMissingFiles() {
+    this.dialog.open(MissingFilesDialogComponent, {
+      data: { missingFiles: this.nativeService.missingFiles }
     });
   }
 }

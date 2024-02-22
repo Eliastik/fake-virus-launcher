@@ -1,0 +1,10 @@
+<h1 mat-dialog-title>{{ 'missingFilesDialog.title' | translate }}</h1>
+<div mat-dialog-content>
+    <div><span>{{ 'missingFilesDialog.description' | translate }}</span></div>
+    <div style="margin-top: 8px;"><strong>{{ 'missingFilesDialog.details' | translate }}</strong></div>
+    <div style="margin-top: 8px;">{{missingFiles && missingFiles.join(", ")}}</div>
+</div>
+<mat-dialog-actions align="end">
+    <button mat-button cdkFocusInitial (click)="closeDialog()">{{ 'missingFilesDialog.download' | translate }}</button>
+    <button mat-button cdkFocusInitial (click)="closeDialog()">{{ 'missingFilesDialog.close' | translate }}</button>
+</mat-dialog-actions>

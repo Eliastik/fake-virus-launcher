@@ -4,7 +4,8 @@
         "exit": "Quitter l'application",
         "update": "Vérifier les mises à jour",
         "about": "À propos",
-        "updateAvailable": "Une mise à jour est disponible !"
+        "updateAvailable": "Une mise à jour est disponible !",
+        "missingFiles": "Des fichiers sont manquants"
     },
     "settingsDialog": {
         "title": "Paramètres",
@@ -78,5 +79,12 @@
         "hasNoUpdate": "Aucune mise à jour n'est disponible",
         "close": "Fermer",
         "download": "Télécharger la mise à jour"
+    },
+    "missingFilesDialog": {
+        "title": "Fichiers manquants",
+        "description": "Certains fichiers sont manquants. Ils sont nécessaires pour pouvoir faire fonctionner les faux virus. Vous pouvez télécharger les fichiers manquants en cliquant sur le bouton ci-dessous.",
+        "details": "Liste des fichiers manquants :",
+        "close": "Fermer",
+        "download": "Télécharger les fichiers manquants"
     }
 }

@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { os, events, storage, window as neutralinoWindow } from "@neutralinojs/lib";
+import { os, events, storage, filesystem, window as neutralinoWindow } from "@neutralinojs/lib";
 import AppData from "src/app/model/app";
 import Program from '../model/program';
 
@@ -7,6 +7,8 @@ import Program from '../model/program';
   providedIn: 'root'
 })
 export class NativeService {
+
+  missingFiles: string[] = [];
 
   constructor() { }
 
@@ -34,7 +36,7 @@ export class NativeService {
     if (this.isNative()) {
       try {
         return await storage.getData(name);
-      } catch(e) {
+      } catch (e) {
         return null;
       }
     } else {
@@ -55,7 +57,7 @@ export class NativeService {
       return Promise.reject();
     }
 
-    const path = (window as any)["NL_CWD"] + "\\assets\\";
+    const path = (window as any)["NL_CWD"] + "\\" + AppData.assetsDirectory + "\\";
     const executablePath = "start cmd.exe /C \"" + path + program.exec + "\"" + (isFullscreen ? " /fullscreen" : "");
 
     const proc = await os.spawnProcess(executablePath, path);
@@ -85,5 +87,19 @@ export class NativeService {
     if (this.isNative()) {
       neutralinoWindow.minimize();
     }
+  }
+
+  async verifyAssetsList(): Promise<string[]> {
+    if (!this.isNative()) {
+      return [];
+    }
+
+    const directory = await filesystem.readDirectory(AppData.assetsDirectory);
+    const filesInDirectory = directory.map(f => f.entry);
+    const assetsFiles = [...AppData.programs.map(p => p.exec), ...AppData.additionalAssetFiles];
+    const missingFiles = assetsFiles.filter(file => !filesInDirectory.includes(file));
+    this.missingFiles = missingFiles;
+
+    return missingFiles;
   }
 }

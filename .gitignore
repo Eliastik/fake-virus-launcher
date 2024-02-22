@@ -48,3 +48,4 @@ bin
 *.log
 .tmp
 .storage
+assets
