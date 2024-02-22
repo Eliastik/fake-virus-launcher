@@ -14,6 +14,7 @@ import { LaunchDialogErrorComponent } from './launch-dialog-error/launch-dialog-
 import { AboutDialogComponent } from './about-dialog/about-dialog.component';
 import { UpdateDialogComponent } from './update-dialog/update-dialog.component';
 import { MissingFilesDialogComponent } from './missing-files-dialog/missing-files-dialog.component';
+import { DownloadingFilesDialogComponent } from './downloading-files-dialog/downloading-files-dialog.component';
 
 
 
@@ -24,7 +25,8 @@ import { MissingFilesDialogComponent } from './missing-files-dialog/missing-file
     LaunchDialogErrorComponent,
     AboutDialogComponent,
     UpdateDialogComponent,
-    MissingFilesDialogComponent
+    MissingFilesDialogComponent,
+    DownloadingFilesDialogComponent
   ],
   imports: [
     CommonModule,

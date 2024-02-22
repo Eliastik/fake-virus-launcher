@@ -86,5 +86,13 @@
         "details": "Liste des fichiers manquants :",
         "close": "Fermer",
         "download": "Télécharger les fichiers manquants"
+    },
+    "downloadingFilesDialog": {
+      "title": "Téléchargement des fichiers",
+      "description": "Téléchargement des fichiers manquants en cours. Veuillez patienter…",
+      "hasErrorTitle": "Erreur",
+      "hasErrorDescription": "Une erreur est survenue lors du téléchargement des fichiers.",
+      "retry": "Réessayer",
+      "close": "Fermer"
     }
 }

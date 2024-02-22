@@ -86,5 +86,13 @@
         "details": "Missing files list:",
         "close": "Close",
         "download": "Download missing files"
+    },
+    "downloadingFilesDialog": {
+      "title": "Downloading files",
+      "description": "Downloading missing files. Please wait…",
+      "hasErrorTitle": "Error",
+      "hasErrorDescription": "An error occurred while downloading files.",
+      "retry": "Retry",
+      "close": "Close"
     }
 }

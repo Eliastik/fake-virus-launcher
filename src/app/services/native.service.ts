@@ -9,7 +9,7 @@ import Program from '../model/program';
 })
 export class NativeService {
 
-  @Output() DownloadingAssetsEvent = new EventEmitter<void>();
+  @Output() downloadingAssetsEvent = new EventEmitter<void>();
   @Output() finishedDownloadingAssetsEvent = new EventEmitter<void>();
   @Output() errorDownloadingAssetsEvent = new EventEmitter<boolean>();
 
@@ -76,6 +76,7 @@ export class NativeService {
               resolve(evt.detail.data);
               break;
             case "stdErr":
+              this.verifyAssetsList();
               reject(evt.detail.data);
               break;
           }
@@ -116,7 +117,7 @@ export class NativeService {
   }
 
   async downloadAssets(): Promise<void> {
-    this.DownloadingAssetsEvent.emit();
+    this.downloadingAssetsEvent.emit();
 
     try {
       await filesystem.getStats(AppData.assetsDirectory);

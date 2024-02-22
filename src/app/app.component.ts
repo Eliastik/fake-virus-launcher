@@ -11,6 +11,7 @@ import { UpdateService } from './services/update.service';
 import { app } from "@neutralinojs/lib";
 import { NativeService } from './services/native.service';
 import { MissingFilesDialogComponent } from './dialogs/missing-files-dialog/missing-files-dialog.component';
+import { DownloadingFilesDialogComponent } from './dialogs/downloading-files-dialog/downloading-files-dialog.component';
 
 @Component({
   selector: 'app-root',
@@ -33,6 +34,10 @@ export class AppComponent {
     public nativeService: NativeService) {
     translate.addLangs(['en', 'fr']);
     translate.setDefaultLang('en');
+
+    this.nativeService.downloadingAssetsEvent.subscribe(() => {
+      this.dialog.open(DownloadingFilesDialogComponent);
+    });
   }
 
   ngOnInit() {

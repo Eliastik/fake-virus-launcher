@@ -1,0 +1,15 @@
+<h1 mat-dialog-title *ngIf="!hasError">{{ 'downloadingFilesDialog.title' | translate }}</h1>
+<h1 mat-dialog-title *ngIf="hasError">{{ 'downloadingFilesDialog.hasErrorTitle' | translate }}</h1>
+<div mat-dialog-content>
+    <div class="dialogDescription" *ngIf="!hasError">
+      <mat-spinner [diameter]="40"></mat-spinner>
+      <span>{{ 'downloadingFilesDialog.description' | translate }}</span>
+    </div>
+    <div class="dialogDescription" *ngIf="hasError">
+      <span>{{ 'downloadingFilesDialog.hasErrorDescription' | translate }}</span>
+    </div>
+</div>
+<mat-dialog-actions align="end" *ngIf="hasError">
+  <button mat-button cdkFocusInitial (click)="retry()">{{ 'downloadingFilesDialog.retry' | translate }}</button>
+    <button mat-button cdkFocusInitial (click)="closeDialog()">{{ 'downloadingFilesDialog.close' | translate }}</button>
+</mat-dialog-actions>
