@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import AppData from "src/app/model/app";
 import { NativeService } from './native.service';
+import { updater, app } from "@neutralinojs/lib";
 
 @Injectable({
   providedIn: 'root'
@@ -16,20 +17,43 @@ export class UpdateService {
     this.checkUpdate();
   }
 
-  checkUpdate() {
-    fetch(this.app.updateURL).then((data) => {
-      data.text().then(text => {
-        this.searchingUpdate = false;
-        this.newVersion = text.trim();
-
-        if(this.app.version.localeCompare(text.trim()) < 0) {
-          this.hasUpdate = true;
-        }
-      });
-    });
+  private isNative() {
+    return (window as any)["NL_APPVERSION"] != null;
   }
 
-  download() {
-    this.nativeService.downloadUpdate();
+  async checkUpdate() {
+    this.searchingUpdate = true;
+
+    if (!this.isNative()) {
+      const data = await fetch(this.app.updateURL);
+      const text = await data.text();
+
+      this.searchingUpdate = false;
+      this.newVersion = text.trim();
+
+      if (this.app.version.localeCompare(text.trim()) < 0) {
+        this.hasUpdate = true;
+      }
+    } else {
+      const manifest = await updater.checkForUpdates(AppData.neutralinoUpdateURL);
+
+      this.searchingUpdate = false;
+
+      if (manifest.version != (window as any)["NL_APPVERSION"]) {
+        this.hasUpdate = true;
+        this.newVersion = manifest.version;
+      } else {
+        this.hasUpdate = false;
+      }
+    }
+  }
+
+  async download() {
+    if (!this.isNative()) {
+      this.nativeService.downloadUpdate();
+    } else {
+      await updater.install();
+      await app.restartProcess();
+    }
   }
 }

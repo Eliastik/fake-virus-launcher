@@ -7,6 +7,7 @@ interface AppData {
   additionalAssetFiles: FileProgram[],
   assetsDirectory: string;
   updateURL: string;
+  neutralinoUpdateURL: string;
   websiteURL: string;
   downloadUpdateURL: string;
   assetsDownloadURL: string;
@@ -36,6 +37,7 @@ const appData: AppData = {
   }],
   "websiteURL": "https://www.eliastiksofts.com",
   "updateURL": "https://www.eliastiksofts.com/faux-virus/updater.txt",
+  "neutralinoUpdateURL": "https://www.eliastiksofts.com/faux-virus/update-manifest.json",
   "downloadUpdateURL": "https://www.eliastiksofts.com/faux-virus/downloads",
   "assetsDownloadURL": "https://www.eliastiksofts.com/faux-virus/downloads/assets/"
 };
