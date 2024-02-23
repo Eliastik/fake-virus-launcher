@@ -45,7 +45,7 @@ You can also run the following command to start the application directly:
 Fake Virus Launcher est un lanceur de faux virus - voir https://www.eliastiksofts.com/faux-virus/
 
 ### À propos
-* Version : 2.1.0 (23/03/2024)
+* Version : 2.1.0 (23/02/2024)
 * Par Eliastik - eliastiksofts.com - Contact : eliastiksofts.com/contact
 * Licence : GNU GPLv3 (voir le fichier LICENCE.txt)
 

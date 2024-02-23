@@ -30,7 +30,7 @@ const appData: AppData = {
     { name: "beep", file: { exec: "beep.bat", hashSHA256: "a6f3ccda75ab33a853798d5288b4e2e18854b6f4e03495ba5dcb79f0664065c4" }, icon: "volume_up", hasFullscreen: false, hasWarning: false, isEasterEgg: false },
     { name: "mega-flash", file: { exec: "mega-flash.bat", hashSHA256: "177eac4172ce2f457b1b4b58f977b56b3ae7bc742102b6a87b6f1f2f882c8d6d" }, icon: "bolt", hasFullscreen: true, hasWarning: false, isEasterEgg: false },
     { name: "bsod", file: { exec: "bsod.hta", hashSHA256: "cbe60ab39f4a3663db03a6d91632ffd8b649d916a4f2cf95eb3d3e5a8398e78d" }, icon: "error_circle_rounded", hasFullscreen: false, hasWarning: false, isEasterEgg: false },
-    { name: "msg", file: { exec: "msg.vbs", hashSHA256: "4014a751f918d5c3c2df5bb1907f84928641627841f73b41ae9bf5d3ad1a8787" }, icon: "warning", hasFullscreen: false, hasWarning: false, isEasterEgg: false },
+    { name: "msg", file: { exec: "msg.vbs", hashSHA256: "840c28f9df7346ecb8ff90c302c7e2815abbd17bcb6c0fe5b5b89e757f702d9e" }, icon: "warning", hasFullscreen: false, hasWarning: false, isEasterEgg: false },
     { name: "mega-flash-color", file: { exec: "mega-flash-color.bat", hashSHA256: "f1250486071d49567caebdc9f2078e73ff480054e4a0006f23172af98c5afe2a" }, icon: "bolt", hasFullscreen: true, hasWarning: false, isEasterEgg: false },
     { name: "infinite-matrix", file: { exec: "infinite-matrix.bat", hashSHA256: "c0f6bbefc32cd3824af6db041f577d240f48e8670cd412ec6315678363189cd6" }, icon: "terminal", hasFullscreen: false, hasWarning: false, isEasterEgg: false },
     { name: "egg", file: { exec: "w.bat", hashSHA256: "e15d002b8ae2fdafc5013912fe6425c37163b2255785435b6aadc2da2ad9db36" }, icon: "egg", hasFullscreen: false, hasWarning: false, isEasterEgg: true }
