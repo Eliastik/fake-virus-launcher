@@ -8,7 +8,7 @@ Fake Virus Launcher is a launcher for fake viruses - see [https://www.eliastikso
 
 ### About
 
-* Version: 2.1.0 (2/21/2024)
+* Version: 2.1.0 (2/23/2024)
 * By Eliastik - [eliastiksofts.com](http://eliastiksofts.com) - Contact : [eliastiksofts.com/contact](http://eliastiksofts.com/contact)
 * License: GNU GPLv3 (see the LICENCE.txt file)
 
@@ -45,7 +45,7 @@ You can also run the following command to start the application directly:
 Fake Virus Launcher est un lanceur de faux virus - voir https://www.eliastiksofts.com/faux-virus/
 
 ### À propos
-* Version : 2.1.0 (21/03/2024)
+* Version : 2.1.0 (23/03/2024)
 * Par Eliastik - eliastiksofts.com - Contact : eliastiksofts.com/contact
 * Licence : GNU GPLv3 (voir le fichier LICENCE.txt)
 

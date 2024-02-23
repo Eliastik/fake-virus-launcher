@@ -20,7 +20,7 @@ interface AssetsUpdate {
 
 const appData: AppData = {
   "version": "2.1.0",
-  "date": new Date(2024, 1, 21),
+  "date": new Date(2024, 1, 23),
   programs: [
     { name: "anticlic", file: { exec: "anticlicvirus.bat", hashSHA256: "e4e5c8732d66456ae58b1a4ba81daf9420deaebf87f2d3f78323ae6c2ddb6c39" }, icon: "mouse", hasFullscreen: false, hasWarning: false, isEasterEgg: false },
     { name: "infinite", file: { exec: "infinite.bat", hashSHA256: "968e624cf02bd71938084f302feb5493d3d367d1631f0f7339aa3cc310b2f5b3" }, icon: "window", hasFullscreen: false, hasWarning: false, isEasterEgg: false },
