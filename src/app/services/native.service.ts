@@ -1,5 +1,5 @@
 import { EventEmitter, Injectable, Output } from '@angular/core';
-import { os, events, storage, filesystem, window as neutralinoWindow } from "@neutralinojs/lib";
+import { os, events, storage, filesystem, updater, app, window as neutralinoWindow } from "@neutralinojs/lib";
 import { BlobReader, ZipReader, BlobWriter } from "@zip.js/zip.js";
 import AppData from "src/app/model/app";
 import { FileProgram, Program } from '../model/program';
@@ -11,10 +11,11 @@ export class NativeService {
 
   @Output() downloadingAssetsEvent = new EventEmitter<void>();
   @Output() finishedDownloadingAssetsEvent = new EventEmitter<void>();
-  @Output() errorDownloadingAssetsEvent = new EventEmitter<boolean>();
+  @Output() errorDownloadingAssetsEvent = new EventEmitter<void>();
 
   missingFiles: string[] = [];
   modifiedFiles: string[] = [];
+  hasUpdateFiles = false;
 
   constructor() { }
 
@@ -30,9 +31,44 @@ export class NativeService {
     }
   }
 
-  downloadUpdate() {
+  async checkUpdate() {
+    const output = {
+      newVersion: "",
+      hasUpdate: false
+    };
+
+    if (!this.isNative()) {
+      const data = await fetch(AppData.updateURL);
+      const text = await data.text();
+
+      output.newVersion = text.trim();
+
+      if (AppData.version.localeCompare(text.trim()) < 0) {
+        output.hasUpdate = true;
+      }
+    } else {
+      const manifest = await updater.checkForUpdates(AppData.neutralinoUpdateURL);
+
+      if (manifest.version != (window as any)["NL_APPVERSION"]) {
+        output.hasUpdate = true;
+        output.newVersion = manifest.version;
+      } else {
+        output.hasUpdate = false;
+      }
+    }
+
+    return output;
+  }
+
+  async downloadUpdate() {
     if (this.isNative()) {
-      os.open(AppData.downloadUpdateURL);
+      try {
+        await this.setStorageItem("updateFromVersion", AppData.version);
+        await updater.install();
+        await app.restartProcess();
+      } catch (e) {
+        os.open(AppData.downloadUpdateURL);
+      }
     } else {
       window.open(AppData.downloadUpdateURL);
     }
@@ -141,7 +177,7 @@ export class NativeService {
   }
 
   async verifyAssetsHashs(): Promise<string[]> {
-      if(!this.isNative()) {
+    if (!this.isNative()) {
       return [];
     }
 
@@ -173,6 +209,18 @@ export class NativeService {
     return this.modifiedFiles;
   }
 
+  async verifyAssetsUpdate() {
+    const fromUpdate = await this.getStorageItem("updateFromVersion");
+
+    if (fromUpdate) {
+      this.hasUpdateFiles = AppData.assetsHasUpdateFrom[fromUpdate];
+    } else {
+      this.hasUpdateFiles = false;
+    }
+
+    return this.hasUpdateFiles;
+  }
+
   async downloadAssets(): Promise<void> {
     this.downloadingAssetsEvent.emit();
 
@@ -202,16 +250,20 @@ export class NativeService {
           }
         }
       }
+
       const result = await this.verifyAssetsList();
 
       if (result.length === 0) {
         await this.verifyAssetsHashs();
       }
+
+      await this.setStorageItem("updateFromVersion", "");
+      await this.verifyAssetsUpdate();
+
+      this.finishedDownloadingAssetsEvent.emit();
     } catch (e) {
       console.error(e);
       this.errorDownloadingAssetsEvent.emit();
     }
-
-    this.finishedDownloadingAssetsEvent.emit();
   }
 }

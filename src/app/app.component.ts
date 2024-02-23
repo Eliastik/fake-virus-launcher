@@ -13,6 +13,7 @@ import { NativeService } from './services/native.service';
 import { MissingFilesDialogComponent } from './dialogs/missing-files-dialog/missing-files-dialog.component';
 import { DownloadingFilesDialogComponent } from './dialogs/downloading-files-dialog/downloading-files-dialog.component';
 import { ModifiedFilesComponent } from './dialogs/modified-files-dialog/modified-files-dialog.component';
+import { FilesHasUpdateDialogComponent } from './dialogs/files-has-update-dialog/files-has-update-dialog.component';
 
 @Component({
   selector: 'app-root',
@@ -63,19 +64,27 @@ export class AppComponent {
   }
 
   async checkFiles() {
-    const missingFiles = await this.nativeService.verifyAssetsList();
+    const hasUpdate = await this.nativeService.verifyAssetsUpdate();
 
-    if (missingFiles.length > 0) {
-      this.dialog.open(MissingFilesDialogComponent, {
-        data: { missingFiles }
-      });
+    if (hasUpdate && (await this.nativeService.getStorageItem("dontShowUpdatedFiles")) !== "true") {
+      this.dialog.open(FilesHasUpdateDialogComponent);
     } else {
-      const modifiedFiles = await this.nativeService.verifyAssetsHashs();
+      const missingFiles = await this.nativeService.verifyAssetsList();
 
-      if (modifiedFiles.length > 0 && (await this.nativeService.getStorageItem("dontShowModifiedFiles")) !== "true") {
-        this.dialog.open(ModifiedFilesComponent, {
-          data: { modifiedFiles }
+      if (missingFiles.length > 0) {
+        this.dialog.open(MissingFilesDialogComponent, {
+          data: { missingFiles }
         });
+      } else {
+        const modifiedFiles = await this.nativeService.verifyAssetsHashs();
+
+        if (modifiedFiles.length > 0 && (await this.nativeService.getStorageItem("dontShowModifiedFiles")) !== "true") {
+          this.dialog.open(ModifiedFilesComponent, {
+            data: { modifiedFiles }
+          });
+        }
+
+        await this.nativeService.setStorageItem("updateFromVersion", "");
       }
     }
   }
@@ -134,5 +143,9 @@ export class AppComponent {
     this.dialog.open(ModifiedFilesComponent, {
       data: { modifiedFiles: this.nativeService.modifiedFiles }
     });
+  }
+
+  showUpdatedFiles() {
+    this.dialog.open(FilesHasUpdateDialogComponent);
   }
 }

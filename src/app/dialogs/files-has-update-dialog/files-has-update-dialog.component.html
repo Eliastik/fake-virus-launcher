@@ -1,0 +1,9 @@
+<h1 mat-dialog-title>{{ 'updateFilesDialog.title' | translate }}</h1>
+<div mat-dialog-content>
+    <div><span>{{ 'updateFilesDialog.description' | translate }}</span></div>
+    <mat-slide-toggle [(ngModel)]="dontShowAgain" (change)="changeDontShowAgain()" style="margin-top: 12px;">{{ 'updateFilesDialog.dontShowAgain' | translate }}</mat-slide-toggle>
+</div>
+<mat-dialog-actions align="end">
+    <button mat-button cdkFocusInitial (click)="downloadAssets()">{{ 'updateFilesDialog.download' | translate }}</button>
+    <button mat-button cdkFocusInitial (click)="closeDialog()">{{ 'updateFilesDialog.close' | translate }}</button>
+</mat-dialog-actions>

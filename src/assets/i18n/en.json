@@ -6,7 +6,8 @@
         "about": "About",
         "updateAvailable": "An update is available!",
         "missingFiles": "Some files are missing",
-        "modifiedFiles": "Some files are corrupted"
+        "modifiedFiles": "Some files are corrupted",
+        "updatedFiles": "Some files need to be updated"
     },
     "settingsDialog": {
         "title": "Settings",
@@ -90,7 +91,7 @@
     },
     "downloadingFilesDialog": {
       "title": "Downloading files",
-      "description": "Downloading missing files. Please wait…",
+      "description": "Downloading files. Please wait…",
       "hasErrorTitle": "Error",
       "hasErrorDescription": "An error occurred while downloading files.",
       "retry": "Retry",
@@ -102,6 +103,13 @@
       "details": "List of corrupted files:",
       "close": "Close",
       "download": "Fix corrupted files",
+      "dontShowAgain": "Don't show again"
+    },
+    "updateFilesDialog": {
+      "title": "Files update",
+      "description": "An update of the fake virus files is available. You can perform the update by clicking on the button below.",
+      "close": "Close",
+      "download": "Update files",
       "dontShowAgain": "Don't show again"
     }
 }

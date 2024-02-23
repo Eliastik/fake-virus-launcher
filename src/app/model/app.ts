@@ -5,12 +5,17 @@ interface AppData {
   date: Date;
   programs: Program[];
   additionalAssetFiles: FileProgram[],
+  assetsHasUpdateFrom: AssetsUpdate;
   assetsDirectory: string;
   updateURL: string;
   neutralinoUpdateURL: string;
   websiteURL: string;
   downloadUpdateURL: string;
   assetsDownloadURL: string;
+}
+
+interface AssetsUpdate {
+  [key: string]: boolean;
 }
 
 const appData: AppData = {
@@ -30,6 +35,7 @@ const appData: AppData = {
     { name: "infinite-matrix", file: { exec: "infinite-matrix.bat", hashSHA256: "c0f6bbefc32cd3824af6db041f577d240f48e8670cd412ec6315678363189cd6" }, icon: "terminal", hasFullscreen: false, hasWarning: false, isEasterEgg: false },
     { name: "egg", file: { exec: "w.bat", hashSHA256: "e15d002b8ae2fdafc5013912fe6425c37163b2255785435b6aadc2da2ad9db36" }, icon: "egg", hasFullscreen: false, hasWarning: false, isEasterEgg: true }
   ],
+  "assetsHasUpdateFrom": { "2.0.1": true, "2.1.0": false },
   "assetsDirectory": "assets",
   "additionalAssetFiles": [{
     exec: "screen.exe",

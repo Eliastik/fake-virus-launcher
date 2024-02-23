@@ -15,14 +15,17 @@ export class DownloadingFilesDialogComponent {
     public dialogRef: MatDialogRef<DownloadingFilesDialogComponent>,
     private nativeService: NativeService) {
     dialogRef.disableClose = true;
+  }
 
+  ngOnInit() {
     this.nativeService.finishedDownloadingAssetsEvent.subscribe(() => {
       this.closeDialog();
     });
 
     this.nativeService.errorDownloadingAssetsEvent.subscribe(() => {
+      console.log("has error");
       this.hasError = true;
-      dialogRef.disableClose = false;
+      this.dialogRef.disableClose = false;
     });
   }
 

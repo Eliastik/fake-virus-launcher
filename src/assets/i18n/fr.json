@@ -6,7 +6,8 @@
         "about": "À propos",
         "updateAvailable": "Une mise à jour est disponible !",
         "missingFiles": "Des fichiers sont manquants",
-        "modifiedFiles": "Des fichiers sont altérés"
+        "modifiedFiles": "Des fichiers sont altérés",
+        "updatedFiles": "Certains fichiers nécessitent une mise à jour"
     },
     "settingsDialog": {
         "title": "Paramètres",
@@ -90,7 +91,7 @@
     },
     "downloadingFilesDialog": {
       "title": "Téléchargement des fichiers",
-      "description": "Téléchargement des fichiers manquants en cours. Veuillez patienter…",
+      "description": "Téléchargement des fichiers en cours. Veuillez patienter…",
       "hasErrorTitle": "Erreur",
       "hasErrorDescription": "Une erreur est survenue lors du téléchargement des fichiers.",
       "retry": "Réessayer",
@@ -102,6 +103,13 @@
       "details": "Liste des fichiers altérés :",
       "close": "Fermer",
       "download": "Corriger les fichiers altérés",
+      "dontShowAgain": "Ne plus afficher"
+    },
+    "updateFilesDialog": {
+      "title": "Mise à jour des fichiers",
+      "description": "Une mise à jour des fichiers des faux virus est disponible. Vous pouvez effectuer la mise à jour en cliquant sur le bouton ci-dessous.",
+      "close": "Fermer",
+      "download": "Mettre à jour les fichiers",
       "dontShowAgain": "Ne plus afficher"
     }
 }
