@@ -17,6 +17,8 @@ export class NativeService {
   modifiedFiles: string[] = [];
   hasUpdateFiles = false;
 
+  private fallbackToLocalStorage = false;
+
   constructor() { }
 
   private isNative() {
@@ -75,11 +77,12 @@ export class NativeService {
   }
 
   async getStorageItem(name: string): Promise<string | null> {
-    if (this.isNative()) {
+    if (this.isNative() && !this.fallbackToLocalStorage) {
       try {
         return await storage.getData(name);
       } catch (e) {
-        return null;
+        this.fallbackToLocalStorage = true;
+        return localStorage.getItem(name);
       }
     } else {
       return localStorage.getItem(name);
@@ -87,8 +90,14 @@ export class NativeService {
   }
 
   async setStorageItem(name: string, value: string): Promise<void> {
-    if (this.isNative()) {
-      await storage.setData(name, value);
+    if (this.isNative() && !this.fallbackToLocalStorage) {
+      try {
+        await storage.setData(name, value);
+      } catch(e) {
+        console.error("Error writing storage item: ", e);
+        this.fallbackToLocalStorage = true;
+        localStorage.setItem(name, value);
+      }
     } else {
       localStorage.setItem(name, value);
     }
@@ -99,10 +108,8 @@ export class NativeService {
       return Promise.reject();
     }
 
-    const path = (window as any)["NL_CWD"] + "\\" + AppData.assetsDirectory + "\\";
-    const executablePath = "start cmd.exe /C \"" + path + program.file.exec + "\"" + (isFullscreen ? " /fullscreen" : "");
-
-    const proc = await os.spawnProcess(executablePath, path);
+    const executablePath = "start cmd.exe /C \"" + program.file.exec + "\"" + (isFullscreen ? " /fullscreen" : "");
+    const proc = await os.spawnProcess(executablePath, "./" + AppData.assetsDirectory);
 
     return new Promise((resolve, reject) => {
       events.on("spawnedProcess", (evt) => {
