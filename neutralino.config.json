@@ -37,7 +37,8 @@
       "maximize": false,
       "hidden": false,
       "resizable": true,
-      "exitProcessOnClose": false
+      "exitProcessOnClose": false,
+      "useSavedState": false
     },
     "browser": {
       "globalVariables": {},
