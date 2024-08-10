@@ -1,6 +1,6 @@
 {
   "name": "fake-virus-pack",
-  "version": "2.1.0",
+  "version": "2.1.1",
   "main": "app.js",
   "scripts": {
     "ng": "ng",
@@ -12,7 +12,8 @@
     "localize": "ng extract-i18n --format=json",
     "neu-run": "ng build --base-href ./ && neu run",
     "neu-build": "ng build --base-href ./ && neu build",
-    "neu-update": "neu update",
+    "neu-update": "neu update --latest",
+    "neu-version": "neu version",
     "neu-set-icon": "resedit dist/virus-launcher/virus-launcher-win_x64.exe dist/virus-launcher/virus-launcher-win_x64-with-icon.exe --icon 1,resources/icon.ico --sign --pfx cert/certificate.pfx --password \"\""
   },
   "private": true,

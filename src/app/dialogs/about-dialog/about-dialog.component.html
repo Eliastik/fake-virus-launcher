@@ -3,6 +3,8 @@
     <div><span>{{ 'aboutDialog.description' | translate }}</span> <a mat-button (click)="openWebsite()">{{app.websiteURL}}</a></div>
     <div><span>{{ 'aboutDialog.version' | translate }} {{app.version}}</span></div>
     <div style="margin-top: 8px;"><span>{{ 'aboutDialog.versionDate' | translate }} {{renderDate()}}</span></div>
+    <div style="margin-top: 8px;"><span>{{ 'aboutDialog.license' | translate }} {{app.license}}</span></div>
+    <div><span>{{ 'aboutDialog.sourceCode' | translate }} <a mat-button (click)="openSourceCode()">{{app.sourceCode}}</a></span></div>
 </div>
 <mat-dialog-actions align="end">
     <button mat-button cdkFocusInitial (click)="closeDialog()">{{ 'aboutDialog.close' | translate }}</button>

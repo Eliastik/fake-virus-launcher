@@ -33,6 +33,14 @@ export class NativeService {
     }
   }
 
+  openSourceCode() {
+    if (this.isNative()) {
+      os.open(AppData.sourceCode);
+    } else {
+      window.open(AppData.sourceCode);
+    }
+  }
+
   async checkUpdate() {
     const output = {
       newVersion: "",

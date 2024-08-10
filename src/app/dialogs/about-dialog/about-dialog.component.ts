@@ -28,4 +28,8 @@ export class AboutDialogComponent {
   openWebsite() {
     this.nativeService.openWebsite();
   }
+
+  openSourceCode() {
+    this.nativeService.openSourceCode();
+  }
 }

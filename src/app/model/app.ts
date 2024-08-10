@@ -2,6 +2,8 @@ import { FileProgram, Program } from "./program";
 
 interface AppData {
   version: string;
+  license: string;
+  sourceCode: string;
   date: Date;
   programs: Program[];
   additionalAssetFiles: FileProgram[],
@@ -19,8 +21,10 @@ interface AssetsUpdate {
 }
 
 const appData: AppData = {
-  "version": "2.1.0",
-  "date": new Date(2024, 1, 24),
+  "version": "2.1.1",
+  "date": new Date(2024, 7, 10),
+  "license": "GNU GPLv3",
+  "sourceCode": "https://github.com/Eliastik/fake-virus-launcher",
   programs: [
     { name: "anticlic", file: { exec: "anticlicvirus.bat", hashSHA256: "e4e5c8732d66456ae58b1a4ba81daf9420deaebf87f2d3f78323ae6c2ddb6c39" }, icon: "mouse", hasFullscreen: false, hasWarning: false, isEasterEgg: false },
     { name: "infinite", file: { exec: "infinite.bat", hashSHA256: "968e624cf02bd71938084f302feb5493d3d367d1631f0f7339aa3cc310b2f5b3" }, icon: "window", hasFullscreen: false, hasWarning: false, isEasterEgg: false },
@@ -35,7 +39,7 @@ const appData: AppData = {
     { name: "infinite-matrix", file: { exec: "infinite-matrix.bat", hashSHA256: "c0f6bbefc32cd3824af6db041f577d240f48e8670cd412ec6315678363189cd6" }, icon: "terminal", hasFullscreen: false, hasWarning: false, isEasterEgg: false },
     { name: "egg", file: { exec: "w.bat", hashSHA256: "e15d002b8ae2fdafc5013912fe6425c37163b2255785435b6aadc2da2ad9db36" }, icon: "egg", hasFullscreen: false, hasWarning: false, isEasterEgg: true }
   ],
-  "assetsHasUpdateFrom": { "2.0.1": true, "2.1.0": false },
+  "assetsHasUpdateFrom": { "2.0.1": true, "2.1.0": false, "2.1.1": false },
   "assetsDirectory": "assets",
   "additionalAssetFiles": [{
     exec: "screen.exe",

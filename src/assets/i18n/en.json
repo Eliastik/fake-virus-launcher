@@ -73,6 +73,8 @@
         "description": "An application by Eliastik's Softs. Website: ",
         "version": "Application version:",
         "versionDate": "Version date:",
+        "license": "License:",
+        "sourceCode": "Source code:",
         "close": "Close"
     },
     "updateDialog": {
