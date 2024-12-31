@@ -16,10 +16,10 @@ import { ModifiedFilesComponent } from './dialogs/modified-files-dialog/modified
 import { FilesHasUpdateDialogComponent } from './dialogs/files-has-update-dialog/files-has-update-dialog.component';
 
 @Component({
-  selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css'],
-
+    selector: 'app-root',
+    templateUrl: './app.component.html',
+    styleUrls: ['./app.component.css'],
+    standalone: false
 })
 export class AppComponent {
 

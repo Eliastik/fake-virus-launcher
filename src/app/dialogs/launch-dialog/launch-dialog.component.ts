@@ -5,9 +5,10 @@ import { LaunchDialogErrorComponent } from '../launch-dialog-error/launch-dialog
 import { NativeService } from 'src/app/services/native.service';
 
 @Component({
-  selector: 'app-launch-dialog',
-  templateUrl: './launch-dialog.component.html',
-  styleUrls: ['./launch-dialog.component.css']
+    selector: 'app-launch-dialog',
+    templateUrl: './launch-dialog.component.html',
+    styleUrls: ['./launch-dialog.component.css'],
+    standalone: false
 })
 export class LaunchDialogComponent {
   program: Program | undefined;

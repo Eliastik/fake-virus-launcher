@@ -3,9 +3,10 @@ import { MatDialogRef } from '@angular/material/dialog';
 import { NativeService } from 'src/app/services/native.service';
 
 @Component({
-  selector: 'app-files-has-update-dialog',
-  templateUrl: './files-has-update-dialog.component.html',
-  styleUrl: './files-has-update-dialog.component.css'
+    selector: 'app-files-has-update-dialog',
+    templateUrl: './files-has-update-dialog.component.html',
+    styleUrl: './files-has-update-dialog.component.css',
+    standalone: false
 })
 export class FilesHasUpdateDialogComponent {
 

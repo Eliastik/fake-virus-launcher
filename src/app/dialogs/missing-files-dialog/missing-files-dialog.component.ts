@@ -3,9 +3,10 @@ import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { NativeService } from 'src/app/services/native.service';
 
 @Component({
-  selector: 'app-missing-files-dialog',
-  templateUrl: './missing-files-dialog.component.html',
-  styleUrl: './missing-files-dialog.component.css'
+    selector: 'app-missing-files-dialog',
+    templateUrl: './missing-files-dialog.component.html',
+    styleUrl: './missing-files-dialog.component.css',
+    standalone: false
 })
 export class MissingFilesDialogComponent {
 

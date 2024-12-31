@@ -5,9 +5,10 @@ import AppData from "src/app/model/app";
 import { NativeService } from 'src/app/services/native.service';
 
 @Component({
-  selector: 'app-about-dialog',
-  templateUrl: './about-dialog.component.html',
-  styleUrls: ['./about-dialog.component.css']
+    selector: 'app-about-dialog',
+    templateUrl: './about-dialog.component.html',
+    styleUrls: ['./about-dialog.component.css'],
+    standalone: false
 })
 export class AboutDialogComponent {
   app = AppData;

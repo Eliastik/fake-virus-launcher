@@ -4,9 +4,10 @@ import { LaunchDialogComponent } from 'src/app/dialogs/launch-dialog/launch-dial
 import { Program } from 'src/app/model/program';
 
 @Component({
-  selector: 'app-program',
-  templateUrl: './program.component.html',
-  styleUrls: ['./program.component.css']
+    selector: 'app-program',
+    templateUrl: './program.component.html',
+    styleUrls: ['./program.component.css'],
+    standalone: false
 })
 export class ProgramComponent {
   @Input() program: Program | undefined;

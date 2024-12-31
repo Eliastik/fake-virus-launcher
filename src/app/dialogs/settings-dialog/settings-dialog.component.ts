@@ -4,9 +4,10 @@ import { TranslateService } from '@ngx-translate/core';
 import { NativeService } from 'src/app/services/native.service';
 
 @Component({
-  selector: 'app-settings-dialog',
-  templateUrl: './settings-dialog.component.html',
-  styleUrls: ['./settings-dialog.component.css']
+    selector: 'app-settings-dialog',
+    templateUrl: './settings-dialog.component.html',
+    styleUrls: ['./settings-dialog.component.css'],
+    standalone: false
 })
 export class SettingsDialogComponent {
 

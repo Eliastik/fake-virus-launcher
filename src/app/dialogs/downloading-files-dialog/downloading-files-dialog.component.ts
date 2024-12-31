@@ -3,9 +3,10 @@ import { MatDialogRef } from '@angular/material/dialog';
 import { NativeService } from 'src/app/services/native.service';
 
 @Component({
-  selector: 'app-downloading-files-dialog',
-  templateUrl: './downloading-files-dialog.component.html',
-  styleUrl: './downloading-files-dialog.component.css'
+    selector: 'app-downloading-files-dialog',
+    templateUrl: './downloading-files-dialog.component.html',
+    styleUrl: './downloading-files-dialog.component.css',
+    standalone: false
 })
 export class DownloadingFilesDialogComponent {
 
