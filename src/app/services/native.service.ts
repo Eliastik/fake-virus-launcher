@@ -117,7 +117,9 @@ export class NativeService {
     }
 
     const executablePath = "start cmd.exe /C \"" + program.file.exec + "\"" + (isFullscreen ? " /fullscreen" : "");
-    const proc = await os.spawnProcess(executablePath, "./" + AppData.assetsDirectory);
+    const proc = await os.spawnProcess(executablePath, {
+      cwd: "./" + AppData.assetsDirectory
+    });
 
     return new Promise((resolve, reject) => {
       events.on("spawnedProcess", (evt) => {
