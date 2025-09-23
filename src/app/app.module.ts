@@ -12,40 +12,45 @@ import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatListModule } from '@angular/material/list';
 import { MatDialogModule } from '@angular/material/dialog';
 import { DialogsModule } from './dialogs/dialogs.module';
-import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
-import { HttpClient, provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
-import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+import { provideTranslateService, TranslateDirective, TranslatePipe } from '@ngx-translate/core';
+import { provideTranslateHttpLoader } from '@ngx-translate/http-loader';
 import { MainModule } from "src/app/main/main.module";
 import { MatBadgeModule } from '@angular/material/badge';
 import { MatTooltipModule } from '@angular/material/tooltip';
-
-export function HttpLoaderFactory(http: HttpClient) {
-  return new TranslateHttpLoader(http, './assets/i18n/', '.json');
-}
+import { provideHttpClient } from '@angular/common/http';
 
 @NgModule({ declarations: [
-        AppComponent
+      AppComponent
     ],
-    bootstrap: [AppComponent], imports: [BrowserModule,
-        AppRoutingModule,
-        BrowserAnimationsModule,
-        MatToolbarModule,
-        MatButtonModule,
-        RouterModule,
-        MatIconModule,
-        MatSidenavModule,
-        MatListModule,
-        MatDialogModule,
-        DialogsModule,
-        MainModule,
-        MatBadgeModule,
-        MatTooltipModule,
-        TranslateModule.forRoot({
-            defaultLanguage: 'en',
-            loader: {
-                provide: TranslateLoader,
-                useFactory: HttpLoaderFactory,
-                deps: [HttpClient]
-            }
-        })], providers: [provideHttpClient(withInterceptorsFromDi())] })
+    bootstrap: [AppComponent],
+    imports: [
+      BrowserModule,
+      AppRoutingModule,
+      BrowserAnimationsModule,
+      MatToolbarModule,
+      MatButtonModule,
+      RouterModule,
+      MatIconModule,
+      MatSidenavModule,
+      MatListModule,
+      MatDialogModule,
+      DialogsModule,
+      MainModule,
+      MatBadgeModule,
+      MatTooltipModule,
+      TranslatePipe,
+      TranslateDirective
+    ],
+    providers: [
+      provideHttpClient(),
+      provideTranslateService({
+        fallbackLang: "en",
+        loader: provideTranslateHttpLoader({
+          prefix:"./assets/i18n/",
+          suffix: ".json"
+        })
+      })
+    ]
+  }
+)
 export class AppModule { }
