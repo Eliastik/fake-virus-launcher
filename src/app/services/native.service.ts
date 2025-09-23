@@ -258,7 +258,7 @@ export class NativeService {
       const entries = await zipReader.getEntries();
 
       for (const entry of entries) {
-        if (entry && entry.getData) {
+        if (entry && !entry.directory && entry.getData) {
           const blobWriter = new BlobWriter();
           const data = await entry.getData(blobWriter);
 
