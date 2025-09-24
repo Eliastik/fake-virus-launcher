@@ -23,7 +23,27 @@
             "tsConfig": "tsconfig.app.json",
             "assets": [
               "src/favicon.ico",
-              "src/assets"
+              "src/assets",
+              {
+                "glob": "roboto-latin-400-normal.woff2",
+                "input": "node_modules/@fontsource/roboto/files/",
+                "output": "assets/fonts/roboto/"
+              },
+              {
+                "glob": "roboto-latin-500-normal.woff2",
+                "input": "node_modules/@fontsource/roboto/files/",
+                "output": "assets/fonts/roboto/"
+              },
+              {
+                "glob": "roboto-latin-600-normal.woff2",
+                "input": "node_modules/@fontsource/roboto/files/",
+                "output": "assets/fonts/roboto/"
+              },
+              {
+                "glob": "material-icons-outlined.woff2",
+                "input": "node_modules/@material-design-icons/font/",
+                "output": "assets/material-icons/"
+              }
             ],
             "styles": [
               "@angular/material/prebuilt-themes/indigo-pink.css",
