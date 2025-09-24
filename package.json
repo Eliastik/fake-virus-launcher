@@ -1,6 +1,6 @@
 {
   "name": "fake-virus-pack",
-  "version": "2.1.1",
+  "version": "2.1.2",
   "main": "app.js",
   "scripts": {
     "ng": "ng",

@@ -21,8 +21,8 @@ interface AssetsUpdate {
 }
 
 const appData: AppData = {
-  "version": "2.1.1",
-  "date": new Date(2024, 7, 10),
+  "version": "2.1.2",
+  "date": new Date(2025, 8, 24),
   "license": "GNU GPLv3",
   "sourceCode": "https://github.com/Eliastik/fake-virus-launcher",
   programs: [
@@ -39,7 +39,7 @@ const appData: AppData = {
     { name: "infinite-matrix", file: { exec: "infinite-matrix.bat", hashSHA256: "c0f6bbefc32cd3824af6db041f577d240f48e8670cd412ec6315678363189cd6" }, icon: "terminal", hasFullscreen: false, hasWarning: false, isEasterEgg: false },
     { name: "egg", file: { exec: "w.bat", hashSHA256: "e15d002b8ae2fdafc5013912fe6425c37163b2255785435b6aadc2da2ad9db36" }, icon: "egg", hasFullscreen: false, hasWarning: false, isEasterEgg: true }
   ],
-  "assetsHasUpdateFrom": { "2.0.1": true, "2.1.0": false, "2.1.1": false },
+  "assetsHasUpdateFrom": { "2.0.1": true, "2.1.0": false, "2.1.1": false, "2.1.2": false },
   "assetsDirectory": "assets",
   "additionalAssetFiles": [{
     exec: "screen.exe",
