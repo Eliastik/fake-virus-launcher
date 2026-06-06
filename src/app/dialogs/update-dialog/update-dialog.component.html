@@ -1,10 +1,18 @@
 <h1 mat-dialog-title>{{ 'updateDialog.title' | translate }}</h1>
 <div mat-dialog-content>
-    <div *ngIf="updateService.searchingUpdate"><mat-spinner></mat-spinner></div>
-    <div *ngIf="!updateService.searchingUpdate && updateService.hasUpdate"><span>{{ 'updateDialog.hasUpdate' | translate }} ({{updateService.newVersion}})</span></div>
-    <div *ngIf="!updateService.searchingUpdate && !updateService.hasUpdate"><span>{{ 'updateDialog.hasNoUpdate' | translate }}</span></div>
+  @if (updateService.searchingUpdate) {
+    <div><mat-spinner></mat-spinner></div>
+  }
+  @if (!updateService.searchingUpdate && updateService.hasUpdate) {
+    <div><span>{{ 'updateDialog.hasUpdate' | translate }} ({{updateService.newVersion}})</span></div>
+  }
+  @if (!updateService.searchingUpdate && !updateService.hasUpdate) {
+    <div><span>{{ 'updateDialog.hasNoUpdate' | translate }}</span></div>
+  }
 </div>
 <mat-dialog-actions align="end">
-    <button mat-button cdkFocusInitial (click)="download()" *ngIf="updateService.hasUpdate">{{ 'updateDialog.download' | translate }}</button>
-    <button mat-button cdkFocusInitial (click)="closeDialog()">{{ 'updateDialog.close' | translate }}</button>
+  @if (updateService.hasUpdate) {
+    <button mat-button cdkFocusInitial (click)="download()">{{ 'updateDialog.download' | translate }}</button>
+  }
+  <button mat-button cdkFocusInitial (click)="closeDialog()">{{ 'updateDialog.close' | translate }}</button>
 </mat-dialog-actions>

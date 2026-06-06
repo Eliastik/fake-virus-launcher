@@ -6,18 +6,26 @@
     <span>Virus Launcher by Eliastik's Softs</span>
     <span class="spacer"></span>
     <button mat-icon-button (click)="launchEgg()"></button>
-    <button mat-icon-button (click)="showUpdatedFiles()" *ngIf="nativeService.hasUpdateFiles" matTooltip="{{ 'menu.updatedFiles' | translate }}">
-      <mat-icon matBadge="!" matBadgeColor="warn" aria-hidden="false">warning</mat-icon>
-    </button>
-    <button mat-icon-button (click)="showMissingFiles()" *ngIf="!nativeService.hasUpdateFiles && nativeService.missingFiles && nativeService.missingFiles.length > 0" matTooltip="{{ 'menu.missingFiles' | translate }}">
-      <mat-icon matBadge="!" matBadgeColor="warn" aria-hidden="false">warning</mat-icon>
-    </button>
-    <button mat-icon-button (click)="showModifiedFiles()" *ngIf="!nativeService.hasUpdateFiles && nativeService.modifiedFiles && nativeService.modifiedFiles.length > 0 && !(nativeService.missingFiles && nativeService.missingFiles.length > 0)" matTooltip="{{ 'menu.modifiedFiles' | translate }}">
-      <mat-icon matBadge="!" matBadgeColor="warn" aria-hidden="false">warning</mat-icon>
-    </button>
-    <button mat-icon-button (click)="checkUpdate()" *ngIf="updateService.hasUpdate" matTooltip="{{ 'menu.updateAvailable' | translate }}">
-      <mat-icon matBadge="!" matBadgeColor="warn" aria-hidden="false">update</mat-icon>
-    </button>
+    @if (nativeService.hasUpdateFiles) {
+      <button mat-icon-button (click)="showUpdatedFiles()" matTooltip="{{ 'menu.updatedFiles' | translate }}">
+        <mat-icon matBadge="!" matBadgeColor="warn" aria-hidden="false">warning</mat-icon>
+      </button>
+    }
+    @if (!nativeService.hasUpdateFiles && nativeService.missingFiles && nativeService.missingFiles.length > 0) {
+      <button mat-icon-button (click)="showMissingFiles()" matTooltip="{{ 'menu.missingFiles' | translate }}">
+        <mat-icon matBadge="!" matBadgeColor="warn" aria-hidden="false">warning</mat-icon>
+      </button>
+    }
+    @if (!nativeService.hasUpdateFiles && nativeService.modifiedFiles && nativeService.modifiedFiles.length > 0 && !(nativeService.missingFiles && nativeService.missingFiles.length > 0)) {
+      <button mat-icon-button (click)="showModifiedFiles()" matTooltip="{{ 'menu.modifiedFiles' | translate }}">
+        <mat-icon matBadge="!" matBadgeColor="warn" aria-hidden="false">warning</mat-icon>
+      </button>
+    }
+    @if (updateService.hasUpdate) {
+      <button mat-icon-button (click)="checkUpdate()" matTooltip="{{ 'menu.updateAvailable' | translate }}">
+        <mat-icon matBadge="!" matBadgeColor="warn" aria-hidden="false">update</mat-icon>
+      </button>
+    }
   </mat-toolbar-row>
 </mat-toolbar>
 <mat-sidenav-container>
