@@ -1,13 +1,14 @@
-import { Component, Inject } from '@angular/core';
+import { Component, Inject, ChangeDetectionStrategy } from '@angular/core';
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
-import { Program } from 'src/app/model/program';
+import { Program } from '../../model/program';
 import { LaunchDialogErrorComponent } from '../launch-dialog-error/launch-dialog-error.component';
-import { NativeService } from 'src/app/services/native.service';
+import { NativeService } from '../../services/native.service';
 
 @Component({
     selector: 'app-launch-dialog',
     templateUrl: './launch-dialog.component.html',
     styleUrls: ['./launch-dialog.component.css'],
+    changeDetection: ChangeDetectionStrategy.Eager,
     standalone: false
 })
 export class LaunchDialogComponent {

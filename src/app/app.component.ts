@@ -1,10 +1,10 @@
-import { Component, HostBinding } from '@angular/core';
+import { Component, HostBinding, ChangeDetectionStrategy } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { SettingsDialogComponent } from './dialogs/settings-dialog/settings-dialog.component';
 import { TranslateService } from '@ngx-translate/core';
 import { AboutDialogComponent } from './dialogs/about-dialog/about-dialog.component';
 import { UpdateDialogComponent } from './dialogs/update-dialog/update-dialog.component';
-import AppData from "src/app/model/app";
+import AppData from "./model/app";
 import { LaunchDialogComponent } from './dialogs/launch-dialog/launch-dialog.component';
 import { OverlayContainer } from '@angular/cdk/overlay';
 import { UpdateService } from './services/update.service';
@@ -19,6 +19,7 @@ import { FilesHasUpdateDialogComponent } from './dialogs/files-has-update-dialog
     selector: 'app-root',
     templateUrl: './app.component.html',
     styleUrls: ['./app.component.css'],
+    changeDetection: ChangeDetectionStrategy.Eager,
     standalone: false
 })
 export class AppComponent {

@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import AppData from "src/app/model/app";
+import AppData from "../model/app";
 import { NativeService } from './native.service';
 import { updater } from "@neutralinojs/lib";
 

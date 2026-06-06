@@ -1,13 +1,14 @@
-import { Component } from '@angular/core';
+import { Component, ChangeDetectionStrategy } from '@angular/core';
 import { MatDialogRef } from '@angular/material/dialog';
 import { TranslateService } from '@ngx-translate/core';
-import AppData from "src/app/model/app";
-import { NativeService } from 'src/app/services/native.service';
+import AppData from "../../model/app";
+import { NativeService } from '../../services/native.service';
 
 @Component({
     selector: 'app-about-dialog',
     templateUrl: './about-dialog.component.html',
     styleUrls: ['./about-dialog.component.css'],
+    changeDetection: ChangeDetectionStrategy.Eager,
     standalone: false
 })
 export class AboutDialogComponent {

@@ -1,11 +1,12 @@
-import { Component } from '@angular/core';
+import { Component, ChangeDetectionStrategy } from '@angular/core';
 import { MatDialogRef } from '@angular/material/dialog';
-import { NativeService } from 'src/app/services/native.service';
+import { NativeService } from '../../services/native.service';
 
 @Component({
     selector: 'app-downloading-files-dialog',
     templateUrl: './downloading-files-dialog.component.html',
     styleUrl: './downloading-files-dialog.component.css',
+    changeDetection: ChangeDetectionStrategy.Eager,
     standalone: false
 })
 export class DownloadingFilesDialogComponent {

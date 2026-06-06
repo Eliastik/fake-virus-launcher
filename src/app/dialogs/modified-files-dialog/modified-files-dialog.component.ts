@@ -1,11 +1,12 @@
-import { Component, Inject } from '@angular/core';
+import { Component, Inject, ChangeDetectionStrategy } from '@angular/core';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
-import { NativeService } from 'src/app/services/native.service';
+import { NativeService } from '../../services/native.service';
 
 @Component({
     selector: 'app-modified-files-dialog',
     templateUrl: './modified-files-dialog.component.html',
     styleUrl: './modified-files-dialog.component.css',
+    changeDetection: ChangeDetectionStrategy.Eager,
     standalone: false
 })
 export class ModifiedFilesComponent {

@@ -1,7 +1,7 @@
 import { EventEmitter, Injectable, Output } from '@angular/core';
 import { os, events, storage, filesystem, updater, app, window as neutralinoWindow } from "@neutralinojs/lib";
 import { BlobReader, ZipReader, BlobWriter } from "@zip.js/zip.js";
-import AppData from "src/app/model/app";
+import AppData from "../model/app";
 import { FileProgram, Program } from '../model/program';
 
 @Injectable({

@@ -14,10 +14,10 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { DialogsModule } from './dialogs/dialogs.module';
 import { provideTranslateService, TranslateDirective, TranslatePipe } from '@ngx-translate/core';
 import { provideTranslateHttpLoader } from '@ngx-translate/http-loader';
-import { MainModule } from "src/app/main/main.module";
+import { MainModule } from "./main/main.module";
 import { MatBadgeModule } from '@angular/material/badge';
 import { MatTooltipModule } from '@angular/material/tooltip';
-import { provideHttpClient } from '@angular/common/http';
+import { provideHttpClient, withXhr } from '@angular/common/http';
 
 @NgModule({ declarations: [
       AppComponent
@@ -42,7 +42,7 @@ import { provideHttpClient } from '@angular/common/http';
       TranslateDirective
     ],
     providers: [
-      provideHttpClient(),
+      provideHttpClient(withXhr()),
       provideTranslateService({
         fallbackLang: "en",
         loader: provideTranslateHttpLoader({
